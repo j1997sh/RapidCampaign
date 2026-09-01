@@ -17,13 +17,15 @@ const attribution={};['utm_source','utm_medium','utm_campaign','utm_content','ut
 attribution.landing_path=location.pathname;attribution.area=site.area;attribution.campaign=rollout.title;
 let sid=sessionStorage.getItem('rapid_campaign_session');if(!/^[0-9a-f-]{36}$/i.test(sid||'')){sid=crypto.randomUUID();sessionStorage.setItem('rapid_campaign_session',sid)}
 sb.rpc('public_track_rapid_campaign_visit',{p_site:site.id,p_session_id:sid,p_full_url:location.href,p_referrer:document.referrer||'',p_attribution:attribution}).catch(()=>{});
-const headline=site.headline||site.title||rollout.title,supporting=site.supporting_copy||pkg.supporting_copy||'',cta=pkg.cta||'Back this campaign';
-document.title=`${site.area} | ${rollout.title}`;
+const variables={area:site.area||'',postcode:site.postcode||'',council:site.council||'',region:site.region||'',...(site.settings?.variables||{})};
+const replaceVars=value=>String(value??'').replace(/\{\{\s*([a-zA-Z0-9_]+)\s*\}\}/g,(all,key)=>Object.prototype.hasOwnProperty.call(variables,key)?String(variables[key]??''):all);
+const headline=replaceVars(site.headline||site.title||rollout.title),supporting=replaceVars(site.supporting_copy||pkg.supporting_copy||''),cta=replaceVars(pkg.cta||'Back this campaign');
+document.title=`${site.area} | ${replaceVars(rollout.title)}`;
 root.innerHTML=`<style>:root{--rc-primary:${esc(primary)};--rc-secondary:${esc(secondary)}}</style>
 <header class="rc-header"><div class="pub-container"><strong>${esc(rollout.title)}</strong><span>${esc(site.area)}</span></div></header>
 <main>
 <section class="rc-hero"${hero?` style="background-image:linear-gradient(90deg,rgba(5,30,60,.92),rgba(5,30,60,.68)),url('${esc(hero)}');background-size:cover;background-position:center"`:''}><div class="pub-container"><div class="rc-area">${esc(site.area)}</div><h1>${esc(headline)}</h1><p>${esc(supporting)}</p><a class="pub-btn" href="#support">${esc(cta)}</a></div></section>
-${points.length?`<section class="pub-section"><div class="pub-container"><div class="pub-grid">${points.map(p=>`<article><h3>${esc(typeof p==='string'?p:(p.title||''))}</h3>${typeof p==='object'&&p.copy?`<p>${esc(p.copy)}</p>`:''}</article>`).join('')}</div></div></section>`:''}
+${points.length?`<section class="pub-section"><div class="pub-container"><div class="pub-grid">${points.map(p=>`<article><h3>${esc(replaceVars(typeof p==='string'?p:(p.title||'')))}</h3>${typeof p==='object'&&p.copy?`<p>${esc(replaceVars(p.copy))}</p>`:''}</article>`).join('')}</div></div></section>`:''}
 <section class="pub-section alt" id="support"><div class="pub-container"><h2>${esc(cta)}</h2><p class="pub-lead">Add your name to support this campaign in ${esc(site.area)}.</p><form id="supportForm" class="pub-action-form"><div class="two"><input name="first_name" placeholder="First name"><input name="last_name" placeholder="Last name"><input class="full" name="email" type="email" placeholder="Email address"><input class="full" name="postcode" placeholder="Postcode"></div><label class="form-note"><input type="checkbox" name="consent"> I would like to receive campaign updates by email.</label><button class="pub-btn" type="submit">${esc(cta)}</button><div id="supportMsg"></div></form></div></section>
 </main><footer class="pub-footer"><div class="pub-container"><strong>${esc(rollout.title)}</strong><small>${esc(site.area)}</small></div></footer>`;
 const form=document.getElementById('supportForm'),msg=document.getElementById('supportMsg');

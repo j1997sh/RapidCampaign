@@ -1,0 +1,2 @@
+-- Applied to live Rapid Campaign Supabase. Keeps arbitrary local CSV variables and postcode geography on each generated microsite.
+-- The live migration replaces org_admin_import_central_campaign_sites so x.variables and x.geography are stored under central_campaign_sites.settings.

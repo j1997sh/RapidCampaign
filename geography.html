@@ -1,19 +1,17 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Geography | Rapid Campaign</title><link rel="stylesheet" href="assets/css/style.css?v=20260826-stage5d-rollouts"></head>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Geography | Rapid Campaign</title><link rel="stylesheet" href="assets/css/style.css?v=20260901-phase2c"></head>
 <body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
 <div class="admin-brand"><span class="brand-mark">RC</span><span><strong>Rapid Campaign</strong><small>Campaign Control</small></span></div>
 <div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
 <nav class="admin-nav"><a href="campaigns.html" data-admin-nav="central_campaigns">Campaigns</a><a href="audiences.html" data-admin-nav="facebook_audiences">Audience library</a><a href="geography.html" data-admin-nav="geography">Geography</a><a href="attribution.html" data-admin-nav="attribution">Attribution</a></nav>
 <div class="admin-sidebar-bottom"><button id="adminLogout" type="button">Log out</button></div>
-</aside><main class="admin-main"><header class="admin-topbar"><div><small>Campaign Control</small><h1>Geography</h1></div><span class="admin-role-badge" id="adminRoleBadge">Admin</span></header><div class="admin-content"><section class="admin-intro"><div><h2>Geography</h2><p>Where supporters actually live, independently of which local account or campaign acquired them.</p></div><a class="btn small" href="campaigns.html">Back to campaigns</a></section>
+</aside><main class="admin-main"><header class="admin-topbar"><div><h1>Geography</h1><small>Resolve postcodes into reusable campaign geography.</small></div><span class="admin-role-badge" id="adminRoleBadge">Admin</span></header><div class="admin-content">
+<section class="admin-intro"><div><h2>Postcode geography</h2><p>Turn UK postcodes into parliamentary constituency, ward, local authority and region. Resolved postcodes are cached for reuse across campaigns.</p></div><a class="btn small" href="campaigns.html">Back to campaigns</a></section>
 <div id="adminGeographyMessage"></div>
-<div class="admin-kpi-grid compact" id="adminGeoKpis"></div>
-<div class="admin-two-col">
-<section class="admin-panel"><div class="admin-panel-head"><div><h3>Parliamentary constituencies</h3><p>People and opted-in supporters by constituency.</p></div></div><div class="geo-ranking" id="adminConstituencies"></div></section>
-<section class="admin-panel"><div class="admin-panel-head"><div><h3>Wards</h3><p>People and supporter actions by ward.</p></div></div><div class="geo-ranking" id="adminWards"></div></section>
+<div class="admin-kpi-grid compact"><div class="admin-kpi"><span>Cached postcodes</span><strong id="geoCached">0</strong></div><div class="admin-kpi"><span>Constituencies</span><strong id="geoConstituencies">0</strong></div><div class="admin-kpi"><span>Wards</span><strong id="geoWards">0</strong></div><div class="admin-kpi"><span>Local authorities</span><strong id="geoAuthorities">0</strong></div></div>
+<div class="geo-tool-grid">
+<section class="admin-panel"><div class="admin-panel-head"><div><h3>Look up a postcode</h3><p>Useful for checking an area before building a campaign.</p></div></div><div class="wizard-inline-form"><input id="geoPostcode" placeholder="e.g. SW1A 1AA" autocomplete="postal-code"><button id="geoLookup" class="btn" type="button">Look up</button></div><div id="geoSingleResult"></div></section>
+<section class="admin-panel"><div class="admin-panel-head"><div><h3>Bulk postcode lookup</h3><p>Paste postcodes one per line, resolve them, then download the results.</p></div></div><textarea id="geoBulkInput" class="geo-bulk-input" placeholder="SW1A 1AA\nB1 1BB\nM1 1AE"></textarea><div class="button-row" style="margin-top:12px"><button id="geoBulkLookup" class="btn" type="button">Resolve postcodes</button><button id="geoBulkDownload" class="btn secondary" type="button" disabled>Download CSV</button></div><div id="geoBulkSummary" class="muted" style="margin-top:10px"></div></section>
 </div>
-<div class="admin-two-col">
-<section class="admin-panel"><h3>Local authorities</h3><div id="adminAuthorities"></div></section>
-<section class="admin-panel"><h3>Regions</h3><div id="adminRegions"></div></section>
-</div></div></main></div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4"></script><script src="assets/js/supabase-config.js?v=20260901-auth3"></script><script src="assets/js/admin-shared-stage3c.js?v=20260901-readyfix1"></script><script>window.CP_ADMIN_ACTIVE="geography";</script><script src="assets/js/admin-geography-stage3d.js?v=20260826-stage3d-geo"></script></body></html>
+<section class="admin-panel" style="margin-top:18px"><div class="admin-panel-head"><div><h3>Cached postcode geography</h3><p>Previously resolved postcodes available for reuse.</p></div><input id="geoSearch" class="geo-search" placeholder="Search postcode, constituency, ward or council"></div><div style="overflow:auto"><table class="geo-table"><thead><tr><th>Postcode</th><th>Constituency</th><th>Ward</th><th>Local authority</th><th>Region</th></tr></thead><tbody id="geoTableBody"></tbody></table></div></section>
+</div></main></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4"></script><script src="assets/js/supabase-config.js?v=20260901-auth3"></script><script>window.CP_ADMIN_ACTIVE="geography";</script><script src="assets/js/admin-shared-stage3c.js?v=20260901-readyfix1"></script><script src="assets/js/admin-geography-stage2c.js?v=20260901-phase2c"></script></body></html>
