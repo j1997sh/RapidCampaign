@@ -55,5 +55,5 @@ async function init(){
  };
  await load();
 }
-if(window.CP_ADMIN)init().catch(console.error);else document.addEventListener('cp-admin-ready',()=>init().catch(console.error),{once:true});
+if(window.CP_ADMIN)init().catch(console.error);else window.addEventListener('cp-admin-ready',()=>init().catch(console.error),{once:true});
 })();

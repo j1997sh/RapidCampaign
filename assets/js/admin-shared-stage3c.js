@@ -16,7 +16,9 @@ try{
   const badge=document.getElementById('adminRoleBadge');if(badge)badge.textContent=membership.role==='global_admin'?'Global admin':'Regional admin';
   document.querySelectorAll('.admin-nav a').forEach(a=>a.classList.toggle('active',a.dataset.adminNav===window.CP_ADMIN_ACTIVE));
   const logout=document.getElementById('adminLogout');if(logout)logout.onclick=async()=>{await sb.auth.signOut();sessionStorage.removeItem('cp_admin_org');location.replace('login.html')};
-  window.dispatchEvent(new CustomEvent('cp-admin-ready',{detail:window.CP_ADMIN}));
+  const readyEventDetail=window.CP_ADMIN;
+  window.dispatchEvent(new CustomEvent('cp-admin-ready',{detail:readyEventDetail}));
+  document.dispatchEvent(new CustomEvent('cp-admin-ready',{detail:readyEventDetail}));
 }catch(err){
   console.error('Rapid Campaign admin bootstrap failed',err);
   const target=document.querySelector('.admin-content')||document.body;
