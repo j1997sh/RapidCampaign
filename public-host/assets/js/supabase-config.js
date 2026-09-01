@@ -1,13 +1,9 @@
-/* Rapid Campaign Supabase configuration.
-   Copy assets/js/supabase-config.example.js over this file and add your project values. */
+/* Rapid Campaign Supabase configuration. */
 window.RAPID_CAMPAIGN_SUPABASE = {
-  url: "https://YOUR_PROJECT.supabase.co",
-  publishableKey: "YOUR_SUPABASE_PUBLISHABLE_KEY"
+  url: "https://peatzuhtfakigpqyglzt.supabase.co",
+  publishableKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBlYXR6dWh0ZmFraWdwcXlnbHp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgyNjU5MzksImV4cCI6MjEwMzg0MTkzOX0.ghHeCyQfSX5rd1Beirvt3n5TtCQtFzIClEwwjXcLCHc"
 };
 if (!window.supabase) throw new Error('Supabase client library is not loaded.');
-if (window.RAPID_CAMPAIGN_SUPABASE.url.includes('YOUR_PROJECT')) {
-  console.warn('Rapid Campaign: configure assets/js/supabase-config.js before use.');
-}
 window.cpSupabase = window.supabase.createClient(
   window.RAPID_CAMPAIGN_SUPABASE.url,
   window.RAPID_CAMPAIGN_SUPABASE.publishableKey,

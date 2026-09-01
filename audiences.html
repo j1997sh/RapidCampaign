@@ -3,7 +3,7 @@
 <body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
 <div class="admin-brand"><span class="brand-mark">RC</span><span><strong>Rapid Campaign</strong><small>Campaign Control</small></span></div>
 <div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
-<nav class="admin-nav"><a href="campaigns.html" data-admin-nav="central_campaigns">Campaigns</a><a href="audiences.html" data-admin-nav="facebook_audiences">Audience library</a><a href="attribution.html" data-admin-nav="attribution">Attribution</a><a href="geography.html" data-admin-nav="geography">Geography</a></nav>
+<nav class="admin-nav"><a href="campaigns.html" data-admin-nav="central_campaigns">Campaigns</a><a href="audiences.html" data-admin-nav="facebook_audiences">Audience library</a></nav>
 <div class="admin-sidebar-bottom"><button id="adminLogout" type="button">Log out</button></div>
 </aside><main class="admin-main">
 <header class="admin-topbar"><div><h1>Facebook audiences</h1></div><span class="admin-role-badge" id="adminRoleBadge">Admin</span></header>
@@ -15,7 +15,7 @@
 <div id="audienceList"></div></section>
 </div></main></div>
 <dialog class="domain-native-dialog" id="audienceEditDialog"><div class="domain-native-dialog-inner">
-<div class="cp-dialog-head"><h3>Add audience mapping</h3><button class="cp-dialog-x" data-close-audience>×</button></div>
+<div class="cp-dialog-head"><h3 id="audienceDialogTitle">Add audience mapping</h3><button class="cp-dialog-x" data-close-audience>×</button></div>
 <form id="audienceEditForm">
 <label class="field"><span>Constituency / area</span><input id="audienceArea" required placeholder="Birmingham Ladywood"></label>
 <label class="field"><span>Audience source filename</span><input id="audienceFilename" placeholder="birminghamladywood.csv"></label>
@@ -26,6 +26,6 @@
 <button class="audience-add-fab" id="addAudience" type="button">Add audience</button>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4"></script>
 <script src="assets/js/supabase-config.js?v=20260901-auth3"></script>
-<script>window.CP_ADMIN_ACTIVE="central_campaigns";</script>
+<script>window.CP_ADMIN_ACTIVE="facebook_audiences";</script>
 <script src="assets/js/admin-shared-stage3c.js?v=20260901-auth3"></script>
-<script src="assets/js/admin-facebook-audiences-stage14d.js?v=20260828-facebook-audiences-bit2"></script></body></html>
+<script src="assets/js/admin-facebook-audiences-stage14d.js?v=20260901-phase1a"></script></body></html>

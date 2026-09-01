@@ -2,7 +2,7 @@
 <body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
 <div class="admin-brand"><span class="brand-mark">RC</span><span><strong>Rapid Campaign</strong><small>Campaign Control</small></span></div>
 <div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
-<nav class="admin-nav"><a href="campaigns.html" data-admin-nav="central_campaigns">Campaigns</a><a href="audiences.html" data-admin-nav="facebook_audiences">Audience library</a><a href="attribution.html" data-admin-nav="attribution">Attribution</a><a href="geography.html" data-admin-nav="geography">Geography</a></nav>
+<nav class="admin-nav"><a href="campaigns.html" data-admin-nav="central_campaigns">Campaigns</a><a href="audiences.html" data-admin-nav="facebook_audiences">Audience library</a></nav>
 <div class="admin-sidebar-bottom"><button id="adminLogout" type="button">Log out</button></div>
 </aside><main class="admin-main">
 <header class="admin-topbar"><div><h1 id="centralCampaignTitle">Campaign rollout</h1><small id="centralCampaignMeta">Rapid Campaign managed</small></div><span class="admin-role-badge" id="adminRoleBadge">Admin</span></header>
@@ -15,6 +15,7 @@
   <button class="btn secondary small" id="editCentralCampaignMaster" type="button">Edit master campaign</button>
   <button class="btn secondary small" id="duplicateCentralCampaignRollout" type="button">Duplicate</button>
   <button class="btn secondary small" id="exportCentralCampaignSupporters" type="button">Export supporters</button>
+  <a class="btn secondary small" id="manageCentralCampaignCreatives" href="creatives.html">Manage creatives</a>
   <button class="btn small" id="createFacebookAds" type="button">Create Facebook ads</button>
   <button class="btn danger-outline small" id="deleteCentralCampaignRollout" type="button">Delete</button>
 </div>
@@ -59,12 +60,12 @@
 <label class="field"><span>Country</span><input id="fbCountry" value="GB" maxlength="2" required></label>
 <label class="field"><span>Special ad category</span><select id="fbSpecialCategory"><option value="issues_elections_politics">Issues, elections or politics</option><option value="none">None</option></select></label>
 <label class="field facebook-ads-wide"><span>Image filename pattern</span><input id="fbImagePattern" value="{{AREA_KEY}}CAMPAIGNIN{{AREA_KEY}}.jpg"><small>Use {{AREA_KEY}}, {{area}} or {{slug}}.</small></label>
-<label class="field facebook-ads-wide"><span>Audience filename pattern</span><input id="fbAudiencePattern" value="{{area_key}}.csv"><small>Used to match your existing audience files to Meta audience IDs/names.</small></label>
+<label class="field facebook-ads-wide"><span>Expected audience naming convention</span><input id="fbAudiencePattern" value="{{area}}"><small>Used to show the expected audience name when a Meta audience ID has not yet been mapped. Supports {{area}}, {{area_key}} and {{slug}}.</small></label>
 <div class="facebook-audience-library-note facebook-ads-wide"><strong>Audience library is matched automatically</strong><span>Stored constituency audiences from Campaigns → Facebook audiences are loaded automatically.</span><a href="audiences.html">Manage audience library</a></div>
 <label class="field facebook-ads-wide"><span>Temporary audience mapping override (optional)</span><input id="fbAudienceMap" type="file" accept=".csv,text/csv"><small>Use only if this batch needs a one-off override. Stored library mappings remain the default.</small></label>
 </div>
 <div class="facebook-ads-preflight" id="facebookAdsPreflight"></div>
-<div class="cp-dialog-actions"><button class="btn secondary" type="button" data-close-facebook-ads>Cancel</button><button class="btn secondary" id="previewFacebookAds" type="button">Check 150-style batch</button><button class="btn" id="downloadFacebookAds" type="submit">Download Facebook CSV</button></div>
+<div class="cp-dialog-actions"><button class="btn secondary" type="button" data-close-facebook-ads>Cancel</button><button class="btn secondary" id="downloadAudienceNamingSheet" type="button">Download audience naming sheet</button><button class="btn secondary" id="previewFacebookAds" type="button">Check batch</button><button class="btn" id="downloadFacebookAds" type="submit">Download Facebook CSV</button></div>
 </form></div></dialog>
 
 <dialog class="domain-native-dialog" id="centralMasterDialog"><div class="domain-native-dialog-inner"><div class="cp-dialog-head"><h3>Edit master campaign</h3><button class="cp-dialog-x" data-close-central-master>×</button></div><form id="centralMasterForm"><label class="field"><span>Campaign title</span><input id="centralMasterTitle" required></label><label class="field"><span>Category</span><input id="centralMasterCategory"></label><label class="field"><span>Internal summary</span><textarea id="centralMasterSummary"></textarea></label><label class="field"><span>Public headline</span><input id="centralMasterHeadline"></label><label class="field"><span>Supporting copy</span><textarea id="centralMasterCopy"></textarea></label><label class="field"><span>Key points (one per line)</span><textarea id="centralMasterPoints"></textarea></label><label class="hq-master-apply"><input id="centralMasterApply" type="checkbox" checked> Apply to every localised microsite</label><div class="cp-dialog-actions"><button class="btn secondary" type="button" data-close-central-master>Cancel</button><button class="btn" type="submit">Save master campaign</button></div></form></div></dialog>
@@ -72,5 +73,5 @@
 <script src="assets/js/supabase-config.js?v=20260901-auth3"></script>
 <script>window.CP_ADMIN_ACTIVE="central_campaigns";</script>
 <script src="assets/js/admin-shared-stage3c.js?v=20260901-auth3"></script>
-<script src="assets/js/admin-central-campaign-rollout-stage12.js?v=20260828-facebook-audiences-bit2"></script>
+<script src="assets/js/admin-central-campaign-rollout-stage12.js?v=20260901-phase1a"></script>
 </body></html>
