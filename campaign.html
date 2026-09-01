@@ -1,82 +1,20 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Campaign rollout | Rapid Campaign</title><link rel="stylesheet" href="assets/css/style.css?v=20260901-phase1b"></head>
-<body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
-<div class="admin-brand"><span class="brand-mark">RC</span><span><strong>Rapid Campaign</strong><small>Campaign Control</small></span></div>
-<div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
-<nav class="admin-nav"><a href="campaigns.html" data-admin-nav="central_campaigns">Campaigns</a><a href="audiences.html" data-admin-nav="facebook_audiences">Audience library</a></nav>
-<div class="admin-sidebar-bottom"><button id="adminLogout" type="button">Log out</button></div>
-</aside><main class="admin-main">
-<header class="admin-topbar"><div><h1 id="centralCampaignTitle">Campaign rollout</h1><small id="centralCampaignMeta">Rapid Campaign managed</small></div><span class="admin-role-badge" id="adminRoleBadge">Admin</span></header>
-<div class="admin-content">
-<div id="centralCampaignMessage"></div>
-<div class="admin-toolbar">
-  <a class="btn secondary small" href="campaigns.html">Back to campaigns</a>
-  <button class="btn secondary small" id="downloadCentralCampaignTemplate">Download CSV template</button>
-  <label class="btn small file-btn">Import local areas<input id="centralCampaignCsv" type="file" accept=".csv,text/csv" hidden></label>
-  <button class="btn secondary small" id="editCentralCampaignMaster" type="button">Edit master campaign</button>
-  <button class="btn secondary small" id="duplicateCentralCampaignRollout" type="button">Duplicate</button>
-  <button class="btn secondary small" id="exportCentralCampaignSupporters" type="button">Export supporters</button>
-  <a class="btn secondary small" id="manageCentralCampaignCreatives" href="creatives.html">Manage creatives</a>
-  <button class="btn small" id="createFacebookAds" type="button">Export to Meta</button>
-  <button class="btn danger-outline small" id="deleteCentralCampaignRollout" type="button">Delete</button>
-</div>
-<div class="admin-kpi-grid" id="centralCampaignKpis"></div>
-<section class="admin-panel campaign-readiness-panel" style="margin-top:16px">
- <div class="admin-panel-head"><div><h3>Launch readiness</h3><p>Rapid Campaign checks every area before you generate the Meta upload.</p></div><button class="btn small" id="openFacebookSetup" type="button">Open Meta setup</button></div>
- <div id="campaignReadiness"></div>
-</section>
-<section class="admin-panel stage13-operations" style="margin-top:16px"><div class="admin-panel-head"><div><h3>Campaign operations</h3><p>Control every localised microsite centrally.</p></div><span id="centralCampaignRolloutState"></span></div><div class="stage13-operation-grid"><button class="stage13-operation-card" id="bulkPublishCentralSites"><strong>Publish all sites</strong><span>Move every microsite to Live.</span></button><button class="stage13-operation-card" id="bulkDraftCentralSites"><strong>Return all to draft</strong><span>Take every microsite out of Live.</span></button><button class="stage13-operation-card" id="pauseCentralCampaign"><strong id="pauseCentralCampaignLabel">Pause campaign</strong><span id="pauseCentralCampaignCopy">Pause the campaign and live sites.</span></button><button class="stage13-operation-card" id="endCentralCampaign"><strong>End campaign</strong><span>End it but retain historic data.</span></button><button class="stage13-operation-card" id="archiveCentralCampaign"><strong>Archive campaign</strong><span>Keep the campaign and historic data out of active operations.</span></button></div></section>
-
-
-<section class="admin-panel" style="margin-top:16px">
- <div class="admin-panel-head"><div><h3>Localised microsites</h3><p>Every site below is managed centrally. No candidate account is created.</p></div><div class="stage13-site-filters"><input id="centralSiteSearch" placeholder="Search area or slug"><select id="centralSiteStatusFilter"><option value="">All statuses</option><option value="draft">Draft</option><option value="live">Live</option><option value="paused">Paused</option><option value="ended">Ended</option></select></div></div>
- <div id="centralCampaignSites"></div>
-</section>
-
-
-<section class="admin-panel" style="margin-top:16px"><div class="admin-panel-head"><div><h3>Performance by area</h3><p>See where the campaign is generating the most support.</p></div></div><div class="admin-two-col"><div><h4>Top performing areas</h4><div id="centralTopAreas"></div></div><div><h4>Areas needing attention</h4><div id="centralBottomAreas"></div></div></div></section>
-<section class="admin-panel" style="margin-top:16px">
- <div class="admin-panel-head"><div><h3>Supporters</h3><p>People captured across all localised sites in this centrally run campaign.</p></div></div>
- <div class="performance-table-wrap"><table class="performance-table"><thead><tr><th>Supporter</th><th>Area</th><th>Postcode</th><th>Consent</th><th>Tags</th><th>Date</th></tr></thead><tbody id="centralCampaignSupporters"></tbody></table></div>
-</section>
-<section class="admin-panel" style="margin-top:16px" id="centralCampaignPreviewPanel" hidden>
- <div class="admin-panel-head"><div><h3>Draft preview</h3><p id="centralCampaignPreviewLabel"></p></div><button class="btn secondary small" id="closeCentralCampaignPreview">Close</button></div>
- <div class="hq-preview-stage desktop"><iframe id="centralCampaignPreviewFrame" title="Campaign microsite preview"></iframe></div>
-</section>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Campaign | Rapid Campaign</title><link rel="stylesheet" href="assets/css/style.css?v=20260901-simple1"></head>
+<body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar"><div class="admin-brand"><span class="brand-mark">RC</span><span><strong>Rapid Campaign</strong><small>Campaign Control</small></span></div><div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div><nav class="admin-nav"><a href="campaigns.html" data-admin-nav="central_campaigns">Campaigns</a></nav><div class="admin-sidebar-bottom"><button id="adminLogout" type="button">Log out</button></div></aside>
+<main class="admin-main"><header class="admin-topbar"><div><h1 id="campaignTitle">Campaign</h1><small id="campaignMeta">Loading…</small></div><span class="admin-role-badge" id="adminRoleBadge">Admin</span></header><div class="admin-content"><div id="campaignMessage"></div>
+<div class="simple-campaign-toolbar"><a class="btn secondary small" href="campaigns.html">Back to campaigns</a><button id="editCampaign" class="btn secondary small" type="button">Settings</button><button id="exportSupporters" class="btn secondary small" type="button">Export supporters</button></div>
+<section class="simple-campaign-hero"><div><span class="simple-eyebrow">Campaign rollout</span><h2 id="campaignHeroTitle"></h2><p id="campaignHeroCopy"></p><div class="simple-domain" id="campaignDomain"></div></div><div id="campaignHeroImage" class="simple-campaign-image"></div></section>
+<div class="simple-core-kpis" id="campaignKpis"></div>
+<section class="admin-panel"><div class="admin-panel-head"><div><h3>Review</h3><p>Every selected area becomes a local campaign page, a generated graphic and a personalised Meta ad row.</p></div><div class="button-row"><button id="downloadGraphics" class="btn secondary" type="button">Download graphics ZIP</button><button id="openMeta" class="btn" type="button">Meta settings & export</button></div></div><div id="campaignReadiness"></div></section>
+<section class="admin-panel" style="margin-top:16px"><div class="admin-panel-head"><div><h3>Local campaign pages</h3><p>All pages run from the same campaign domain.</p></div><input id="areaSearch" placeholder="Search areas"></div><div id="areaTable"></div></section>
+<section class="admin-panel" style="margin-top:16px"><div class="admin-panel-head"><div><h3>Supporters</h3><p>Sign-ups captured through the local campaign pages.</p></div></div><div class="performance-table-wrap"><table class="performance-table"><thead><tr><th>Supporter</th><th>Area</th><th>Postcode</th><th>Consent</th><th>Date</th></tr></thead><tbody id="supportersTable"></tbody></table></div></section>
 </div></main></div>
 
+<dialog class="domain-native-dialog facebook-ads-dialog" id="metaDialog"><div class="domain-native-dialog-inner facebook-ads-dialog-inner"><div class="cp-dialog-head"><div><h3>Meta settings & export</h3><p>Rapid Campaign personalises the copy, derives the audience and uses the exact generated graphic filename for every area.</p></div><button class="cp-dialog-x" data-close-meta>×</button></div><form id="metaForm"><div class="facebook-ads-grid">
+<label class="field facebook-ads-wide"><span>Campaign name</span><input id="fbCampaignPattern" value="{{campaign}}" required></label><label class="field facebook-ads-wide"><span>Ad set name</span><input id="fbAdSetPattern" value="{{campaign}} | {{area}}" required></label><label class="field facebook-ads-wide"><span>Ad name</span><input id="fbAdPattern" value="{{campaign}} | {{area}} | 01" required></label>
+<label class="field facebook-ads-wide"><span>Primary text</span><textarea id="fbBody" rows="4" required></textarea><small>Use {{area}} to personalise.</small></label><label class="field facebook-ads-wide"><span>Headline</span><input id="fbHeadline" required></label><label class="field facebook-ads-wide"><span>Description</span><input id="fbDescription"></label>
+<label class="field"><span>CTA</span><select id="fbCta"><option value="SIGN_UP">Sign Up</option><option value="LEARN_MORE">Learn More</option><option value="CONTACT_US">Contact Us</option></select></label><label class="field"><span>Daily budget per area (£)</span><input id="fbDailyBudget" type="number" min="1" step="0.01" required></label><label class="field"><span>Facebook Page ID</span><input id="fbPageId" required></label>
+<label class="field facebook-ads-wide"><span>Campaign domain</span><input id="fbBaseUrl" type="url" required></label><label class="field facebook-ads-wide"><span>Audience naming convention</span><input id="fbAudiencePattern" value="{{area}}AUDIENCE.CSV" required><small>Assumes the audiences already exist in the Meta ad account.</small></label>
+</div><div id="metaPreflight"></div><div class="cp-dialog-actions"><button class="btn secondary" type="button" data-close-meta>Cancel</button><button id="saveMeta" class="btn secondary" type="button">Save settings</button><button id="downloadMeta" class="btn" type="submit">Download Meta workbook</button></div></form></div></dialog>
 
-<dialog class="domain-native-dialog facebook-ads-dialog" id="facebookAdsDialog"><div class="domain-native-dialog-inner facebook-ads-dialog-inner">
-<div class="cp-dialog-head"><div><h3>Meta-ready export</h3><p>One checked CSV containing the campaign, local ad sets, local ads, audiences, creative filenames, landing pages and tracking.</p></div><button class="cp-dialog-x" data-close-facebook-ads>×</button></div>
-<form id="facebookAdsForm">
-<div class="facebook-ads-grid">
-<label class="field facebook-ads-wide"><span>Campaign naming convention</span><input id="fbCampaignPattern" value="{{campaign}}" required><small>Supports {{campaign}}, {{area}}, {{area_key}}, {{slug}}, {{objective}} and {{audience}}.</small></label>
-<label class="field facebook-ads-wide"><span>Ad set naming convention</span><input id="fbAdSetPattern" value="{{campaign}} | {{area}}" required></label>
-<label class="field facebook-ads-wide"><span>Ad naming convention</span><input id="fbAdPattern" value="{{campaign}} | {{area}} | 01" required></label>
-<label class="field"><span>Campaign objective</span><select id="fbObjective"><option value="Traffic">Traffic</option><option value="Outcome Leads">Outcome Leads</option><option value="Conversions">Conversions</option></select></label>
-<label class="field"><span>CTA</span><select id="fbCta"><option value="SIGN_UP">Sign Up</option><option value="LEARN_MORE">Learn More</option><option value="DONATE_NOW">Donate Now</option><option value="CONTACT_US">Contact Us</option></select></label>
-<label class="field facebook-ads-wide"><span>Primary text</span><textarea id="fbBody" rows="4" required></textarea></label>
-<label class="field facebook-ads-wide"><span>Headline</span><input id="fbHeadline" maxlength="255" placeholder="Stop the Farm Tax in {{area}}" required></label>
-<label class="field"><span>Budget sits at</span><select id="fbBudgetLevel"><option value="adset">Ad set</option><option value="campaign">Campaign</option></select></label>
-<label class="field"><span>Daily budget (£)</span><input id="fbDailyBudget" type="number" min="1" step="0.01" value="10" required></label>
-<label class="field"><span>Start</span><input id="fbStart" type="datetime-local"></label>
-<label class="field"><span>End</span><input id="fbEnd" type="datetime-local"></label>
-<label class="field"><span>Facebook Page ID</span><input id="fbPageId" inputmode="numeric" placeholder="Required for Page post ads" required></label>
-<label class="field"><span>Landing page base URL</span><input id="fbBaseUrl" type="url" placeholder="https://campaign.example" required></label>
-<label class="field"><span>Country</span><input id="fbCountry" value="GB" maxlength="2" required></label>
-<label class="field"><span>Special ad category</span><select id="fbSpecialCategory"><option value="ISSUES_ELECTIONS_POLITICS">Issues, elections or politics</option><option value="none">None</option></select></label>
-<label class="field facebook-ads-wide"><span>Image filename pattern</span><input id="fbImagePattern" value="{{AREA_KEY}}CAMPAIGNIN{{AREA_KEY}}.jpg"><small>Use {{AREA_KEY}}, {{area}} or {{slug}}.</small></label>
-<label class="field facebook-ads-wide"><span>Expected audience naming convention</span><input id="fbAudiencePattern" value="{{area}}"><small>Used to show the expected audience name when a Meta audience ID has not yet been mapped. Supports {{area}}, {{area_key}} and {{slug}}.</small></label>
-<div class="facebook-audience-library-note facebook-ads-wide"><strong>Audience library is matched automatically</strong><span>Stored constituency audiences from Campaigns → Facebook audiences are loaded automatically.</span><a href="audiences.html">Manage audience library</a></div>
-<label class="field facebook-ads-wide"><span>Temporary audience mapping override (optional)</span><input id="fbAudienceMap" type="file" accept=".csv,text/csv"><small>Use only if this batch needs a one-off override. Stored library mappings remain the default.</small></label>
-</div>
-<div id="facebookSettingsMessage"></div><div class="facebook-ads-preflight" id="facebookAdsPreflight"></div>
-<div class="cp-dialog-actions"><button class="btn secondary" type="button" data-close-facebook-ads>Cancel</button><button class="btn secondary" id="saveFacebookSettings" type="button">Save setup</button><button class="btn secondary" id="downloadAudienceNamingSheet" type="button">Audience naming sheet</button><button class="btn secondary" id="previewFacebookAds" type="button">Check batch</button><button class="btn" id="downloadFacebookAds" type="submit">Download Meta-ready CSV</button></div>
-</form></div></dialog>
-
-<dialog class="domain-native-dialog" id="centralMasterDialog"><div class="domain-native-dialog-inner"><div class="cp-dialog-head"><h3>Edit master campaign</h3><button class="cp-dialog-x" data-close-central-master>×</button></div><form id="centralMasterForm"><label class="field"><span>Campaign title</span><input id="centralMasterTitle" required></label><label class="field"><span>Category</span><input id="centralMasterCategory"></label><label class="field"><span>Internal summary</span><textarea id="centralMasterSummary"></textarea></label><label class="field"><span>Public headline</span><input id="centralMasterHeadline"></label><label class="field"><span>Supporting copy</span><textarea id="centralMasterCopy"></textarea></label><label class="field"><span>Key points (one per line)</span><textarea id="centralMasterPoints"></textarea></label><label class="hq-master-apply"><input id="centralMasterApply" type="checkbox" checked> Apply to every localised microsite</label><div class="cp-dialog-actions"><button class="btn secondary" type="button" data-close-central-master>Cancel</button><button class="btn" type="submit">Save master campaign</button></div></form></div></dialog>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4"></script>
-<script src="assets/js/supabase-config.js?v=20260901-auth3"></script>
-<script>window.CP_ADMIN_ACTIVE="central_campaigns";</script>
-<script src="assets/js/admin-shared-stage3c.js?v=20260901-readyfix1"></script>
-<script src="assets/js/admin-central-campaign-rollout-stage12.js?v=20260901-meta-ready1"></script>
-</body></html>
+<dialog class="domain-native-dialog" id="settingsDialog"><div class="domain-native-dialog-inner"><div class="cp-dialog-head"><div><h3>Campaign settings</h3><p>Fine-tune the central campaign. Changes can be applied across every local page.</p></div><button class="cp-dialog-x" data-close-settings>×</button></div><form id="settingsForm"><label class="field"><span>Campaign name</span><input id="settingsTitle" required></label><label class="field"><span>Headline</span><input id="settingsHeadline"></label><label class="field"><span>Supporting copy</span><textarea id="settingsCopy" rows="5"></textarea></label><label class="hq-master-apply"><input id="settingsApply" type="checkbox" checked> Apply copy changes to every local page</label><div class="cp-dialog-actions"><button class="btn secondary" type="button" data-close-settings>Cancel</button><button class="btn" type="submit">Save changes</button></div></form></div></dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4"></script><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="assets/js/supabase-config.js?v=20260901-auth3"></script><script>window.CP_ADMIN_ACTIVE="central_campaigns";</script><script src="assets/js/admin-shared-stage3c.js?v=20260901-readyfix1"></script><script src="assets/js/minimal-xlsx.js?v=20260901-xlsx1"></script><script src="assets/js/admin-campaign-simple-review.js?v=20260901-simple1"></script></body></html>

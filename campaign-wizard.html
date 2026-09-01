@@ -1,56 +1,75 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Create campaign | Rapid Campaign</title><link rel="stylesheet" href="assets/css/style.css?v=20260901-phase2c"></head>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Create campaign | Rapid Campaign</title><link rel="stylesheet" href="assets/css/style.css?v=20260901-simple1"></head>
 <body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
 <div class="admin-brand"><span class="brand-mark">RC</span><span><strong>Rapid Campaign</strong><small>Campaign Control</small></span></div>
 <div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
-<nav class="admin-nav"><a href="campaigns.html" data-admin-nav="central_campaigns">Campaigns</a><a href="audiences.html" data-admin-nav="facebook_audiences">Audience library</a><a href="geography.html" data-admin-nav="geography">Geography</a><a href="attribution.html" data-admin-nav="attribution">Attribution</a></nav>
+<nav class="admin-nav"><a href="campaigns.html" data-admin-nav="central_campaigns">Campaigns</a></nav>
 <div class="admin-sidebar-bottom"><button id="adminLogout" type="button">Log out</button></div>
-</aside><main class="admin-main"><header class="admin-topbar"><div><h1>Create Rapid Campaign</h1><small>One campaign in. Local websites and Meta ads out.</small></div><span class="admin-role-badge" id="adminRoleBadge">Admin</span></header>
+</aside><main class="admin-main"><header class="admin-topbar"><div><h1>Create campaign</h1><small>Create once. Launch local pages and Meta ads everywhere.</small></div><span class="admin-role-badge" id="adminRoleBadge">Admin</span></header>
 <div class="admin-content"><div id="wizardMessage"></div>
-<div class="wizard-shell">
-<section class="wizard-card">
-<div class="wizard-progress" id="wizardProgress">
-<button class="wizard-step-tab active" data-step-tab="1"><strong>1</strong><span>Campaign</span></button><button class="wizard-step-tab" data-step-tab="2"><strong>2</strong><span>Design</span></button><button class="wizard-step-tab" data-step-tab="3"><strong>3</strong><span>Areas</span></button><button class="wizard-step-tab" data-step-tab="4"><strong>4</strong><span>Preview</span></button><button class="wizard-step-tab" data-step-tab="5"><strong>5</strong><span>Audiences</span></button><button class="wizard-step-tab" data-step-tab="6"><strong>6</strong><span>Creative</span></button><button class="wizard-step-tab" data-step-tab="7"><strong>7</strong><span>Launch</span></button>
+<div class="simple-flow-shell">
+<div class="simple-flow-progress" id="simpleFlowProgress">
+<button class="simple-flow-tab active" data-step-tab="1"><b>1</b><span>Campaign</span></button>
+<button class="simple-flow-tab" data-step-tab="2"><b>2</b><span>Areas</span></button>
+<button class="simple-flow-tab" data-step-tab="3"><b>3</b><span>Assets</span></button>
+<button class="simple-flow-tab" data-step-tab="4"><b>4</b><span>Review</span></button>
 </div>
 <form id="campaignWizardForm">
-<div class="wizard-step active" data-step="1"><h2>Campaign</h2><p>Set the central message once. Rapid Campaign will localise it for every area.</p><div class="wizard-section-label public"><strong>Public campaign content</strong><span>These fields feed the microsite preview</span></div><div class="wizard-grid">
-<label class="field full"><span>Campaign title</span><input id="wizTitle" required placeholder="Business Rates Campaign"></label>
-<label class="field"><span>Category</span><input id="wizCategory" placeholder="Economy"></label><label class="field"><span>Base slug</span><input id="wizSlug" placeholder="business-rates"></label>
-<div class="wizard-internal-block full"><div class="wizard-section-label"><strong>Internal only</strong><span>Never shown on the public microsite</span></div><label class="field full"><span>Internal summary</span><textarea id="wizSummary" rows="3" placeholder="Notes for the campaign team"></textarea></label></div>
-<label class="field full"><span class="wizard-field-title">Public headline <button type="button" class="wizard-variable" data-insert-variable="wizHeadline">+ {{area}}</button></span><input id="wizHeadline" required placeholder="Back our campaign in {{area}}"><small>Use variables to insert local information automatically.</small></label>
-<label class="field full"><span class="wizard-field-title">Supporting copy <button type="button" class="wizard-variable" data-insert-variable="wizCopy">+ {{area}}</button></span><textarea id="wizCopy" rows="5" placeholder="People across {{area}} deserve..."></textarea></label>
-<label class="field full"><span>Key points — one per line</span><textarea id="wizPoints" rows="4"></textarea></label>
-</div><div class="wizard-actions"><a class="btn secondary" href="campaigns.html">Cancel</a><div class="right"><button type="button" class="btn" data-next>Next: design</button></div></div></div>
+<section class="simple-flow-step active" data-step="1">
+<div class="simple-flow-head"><div><h2>Campaign</h2><p>Set the campaign once. Rapid Campaign will reuse it for every local page and Meta ad.</p></div></div>
+<div class="simple-two-col">
+<div class="simple-card"><h3>Campaign page</h3>
+<label class="field"><span>Campaign name</span><input id="wizTitle" required placeholder="Save Our High Streets"></label>
+<div class="wizard-grid"><label class="field"><span>Campaign slug</span><input id="wizSlug" placeholder="save-our-high-streets"></label><label class="field"><span>Campaign domain</span><input id="wizDomain" type="url" placeholder="https://campaignname.com" required></label></div>
+<label class="field"><span>Headline</span><input id="wizHeadline" required value="Back our campaign in {{area}}"></label>
+<label class="field"><span>Supporting copy</span><textarea id="wizCopy" rows="5" placeholder="People across {{area}} deserve..."></textarea></label>
+<div class="wizard-grid"><label class="field"><span>CTA</span><input id="wizCta" value="Back this campaign"></label><label class="field"><span>Category</span><input id="wizCategory" placeholder="Economy"></label></div>
+<label class="field"><span>Hero image</span><input id="wizHeroFile" type="file" accept="image/png,image/jpeg,image/webp"><small>Used on every local page and to generate the local Meta graphics.</small></label>
+<div id="wizHeroPreview" class="simple-hero-preview empty"><span>Hero preview</span></div>
+</div>
+<div class="simple-card"><h3>Meta ad copy</h3>
+<label class="field"><span>Primary text</span><textarea id="wizMetaBody" rows="5">Back our campaign in {{area}} and make your voice heard.</textarea><small>Use {{area}} to personalise every ad.</small></label>
+<label class="field"><span>Headline</span><input id="wizMetaHeadline" value="Stand up for {{area}}"></label>
+<label class="field"><span>Description</span><input id="wizMetaDescription" value="Add your name today."></label>
+<div class="wizard-grid"><label class="field"><span>CTA</span><select id="wizMetaCta"><option value="SIGN_UP">Sign Up</option><option value="LEARN_MORE">Learn More</option><option value="CONTACT_US">Contact Us</option></select></label><label class="field"><span>Daily budget per area (£)</span><input id="wizMetaBudget" type="number" min="1" step="0.01" value="10"></label></div>
+<label class="field"><span>Facebook Page ID</span><input id="wizMetaPage" inputmode="numeric" placeholder="Required for final Meta workbook"></label>
+<div class="simple-note"><strong>Audience naming</strong><span>Rapid Campaign will automatically use <code>{{area}}AUDIENCE.CSV</code>.</span></div>
+<h4>Supporter form</h4><div class="simple-check-grid"><label><input id="wizFieldName" type="checkbox" checked> Name</label><label><input id="wizFieldEmail" type="checkbox" checked> Email</label><label><input id="wizFieldPostcode" type="checkbox" checked> Postcode</label><label><input id="wizFieldPhone" type="checkbox"> Phone</label></div>
+</div></div>
+<div class="wizard-actions"><a class="btn secondary" href="campaigns.html">Cancel</a><button type="button" class="btn" data-next>Next: choose areas</button></div>
+</section>
 
-<div class="wizard-step" data-step="2"><h2>Microsite design</h2><p>Choose the visual treatment that every local site inherits. Individual areas can still be overridden later.</p><div class="wizard-grid">
-<label class="field"><span>Primary colour</span><input id="wizPrimary" type="color" value="#08254a"></label><label class="field"><span>Accent colour</span><input id="wizAccent" type="color" value="#1476d4"></label>
-<label class="field full"><span>CTA label</span><input id="wizCta" value="Back this campaign"></label>
-<label class="field full"><span>Hero image URL (optional)</span><input id="wizHero" type="url" placeholder="https://..."><small>Leave blank for the clean colour treatment.</small></label>
-</div><div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><div class="right"><button type="button" class="btn" data-next>Next: areas</button></div></div></div>
+<section class="simple-flow-step" data-step="2">
+<div class="simple-flow-head"><div><h2>Choose areas</h2><p>Upload a CSV or tick the constituencies/wards you want to include.</p></div><div class="simple-selected-count"><strong id="wizAreaCount">0</strong><span>selected</span></div></div>
+<div class="simple-mode-switch"><button type="button" class="active" data-area-mode="csv">Upload CSV</button><button type="button" data-area-mode="pick">Choose areas</button></div>
+<div id="areaModeCsv" class="simple-area-mode active">
+<div class="wizard-file-drop"><strong>Upload areas CSV</strong><p class="muted">A column called Area, Constituency or Ward is enough. Postcode, council and region are optional.</p><input id="wizAreasFile" type="file" accept=".csv,text/csv"></div>
+<div id="wizCsvStatus"></div>
+</div>
+<div id="areaModePick" class="simple-area-mode">
+<div class="simple-picker-tools"><input id="wizAreaSearch" placeholder="Search known constituencies and wards"><select id="wizAreaType"><option value="all">Constituencies & wards</option><option value="constituency">Constituencies</option><option value="ward">Wards</option></select></div>
+<div id="wizKnownAreas" class="simple-checklist"><div class="workspace-empty-state"><div><p>Loading known areas…</p></div></div></div>
+<div class="simple-manual-add"><label class="field"><span>Add an area manually</span><div class="wizard-inline-form"><input id="wizManualArea" placeholder="e.g. Croydon South"><button id="wizManualAreaAdd" class="btn secondary small" type="button">Add</button></div></label></div>
+</div>
+<div class="simple-card compact"><div class="admin-panel-head"><div><h3>Selected areas</h3><p>One local campaign page and one Meta graphic will be generated for each area.</p></div><button id="wizClearAreas" class="btn secondary small" type="button">Clear</button></div><div id="wizSelectedAreas"></div></div>
+<div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><button type="button" class="btn" data-next>Next: preview assets</button></div>
+</section>
 
-<div class="wizard-step" data-step="3"><h2>Areas & geography</h2><p>Upload almost any sensible CSV. Rapid Campaign suggests the column mapping, can resolve UK postcodes, and turns extra local columns into reusable campaign variables.</p>
-<div class="wizard-file-drop"><strong>Upload areas CSV</strong><p class="muted">Constituency, ward, postcode, candidate, local issue and other columns are detected automatically. You can change every mapping before import.</p><input id="wizAreasFile" type="file" accept=".csv,text/csv"></div>
-<div class="wizard-geo-tools"><div class="wizard-geo-lookup"><div><strong>Quick postcode lookup</strong><small>Check any UK postcode without leaving the wizard.</small></div><div class="wizard-inline-form"><input id="wizPostcodeLookup" placeholder="e.g. SW1A 1AA" autocomplete="postal-code"><button id="wizPostcodeLookupBtn" class="btn secondary small" type="button">Look up</button></div></div><div id="wizPostcodeLookupResult"></div></div>
-<div id="wizColumnMap"></div>
-<div class="wizard-geo-actionbar"><label class="field"><span>When an area name is missing, use postcode geography</span><select id="wizPostcodeAreaType"><option value="parliamentary_constituency">Parliamentary constituency</option><option value="ward">Ward</option><option value="local_authority">Local authority</option></select></label><button id="wizResolvePostcodes" class="btn secondary" type="button">Resolve postcodes</button></div>
-<div class="wizard-status-grid five"><div class="wizard-status-card"><span>Rows found</span><strong id="wizAreaCount">0</strong></div><div class="wizard-status-card"><span>Columns</span><strong id="wizColumnCount">0</strong></div><div class="wizard-status-card"><span>Postcodes resolved</span><strong id="wizPostcodeResolved">0</strong></div><div class="wizard-status-card"><span>Variables</span><strong id="wizVariableCount">0</strong></div><div class="wizard-status-card"><span>Need attention</span><strong id="wizAreaIssues">0</strong></div></div>
-<div class="wizard-variable-panel"><strong>Available local variables</strong><small>Use these in headlines, supporting copy and key points. Click a variable to copy it.</small><div id="wizVariables" class="wizard-variable-chips"></div></div>
-<div id="wizAreaList"></div><div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><div class="right"><button type="button" class="btn" data-next>Next: preview</button></div></div></div>
+<section class="simple-flow-step" data-step="3">
+<div class="simple-flow-head"><div><h2>Generated assets</h2><p>Check how the local pages, graphics and Meta copy will look before anything is created.</p></div><select id="wizPreviewArea"></select></div>
+<div class="simple-assets-grid">
+<div class="simple-card"><div class="simple-card-head"><h3>Local campaign page</h3><span id="wizPageUrl" class="muted"></span></div><div id="wizPagePreview" class="simple-page-preview"></div></div>
+<div class="simple-card"><div class="simple-card-head"><h3>Meta graphic</h3><code id="wizGraphicFilename"></code></div><canvas id="wizGraphicCanvas" width="1080" height="1080"></canvas></div>
+<div class="simple-card full"><h3>Localised Meta ad</h3><div class="simple-ad-preview"><p id="wizAdBody"></p><strong id="wizAdHeadline"></strong><span id="wizAdDescription"></span><div class="simple-ad-meta"><code id="wizAudienceName"></code><code id="wizAdImageName"></code></div></div></div>
+</div>
+<div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><button type="button" class="btn" data-next>Next: review</button></div>
+</section>
 
-<div class="wizard-step" data-step="4"><h2>Preview</h2><p>Switch between areas and check the localised campaign before anything is created.</p><div class="state-banner success" id="wizPreviewSummary">Add areas to preview local versions.</div><div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><div class="right"><button type="button" class="btn" data-next>Next: audiences</button></div></div></div>
-
-<div class="wizard-step" data-step="5"><h2>Audiences</h2><p>Rapid Campaign automatically matches the uploaded areas against the reusable Meta Audience Library.</p><div class="wizard-status-grid"><div class="wizard-status-card"><span>Areas</span><strong id="wizAudienceTotal">0</strong></div><div class="wizard-status-card"><span>Matched</span><strong id="wizAudienceMatched">0</strong></div><div class="wizard-status-card"><span>Missing</span><strong id="wizAudienceMissing">0</strong></div></div><div id="wizAudienceList"></div><div class="button-row" style="margin-top:14px"><a class="btn secondary small" href="audiences.html" target="_blank">Open Audience Library</a></div><div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><div class="right"><button type="button" class="btn" data-next>Next: creative</button></div></div></div>
-
-<div class="wizard-step" data-step="6"><h2>Creative</h2><p>Upload all local images at once. Filenames are matched against area names before the campaign is created.</p><div class="wizard-file-drop"><strong>Choose campaign images</strong><p class="muted">PNG, JPG or WebP. For example: croydon-south.png.</p><input id="wizCreativeFiles" type="file" accept="image/png,image/jpeg,image/webp" multiple></div><div class="wizard-status-grid"><div class="wizard-status-card"><span>Files selected</span><strong id="wizCreativeTotal">0</strong></div><div class="wizard-status-card"><span>Auto-matched</span><strong id="wizCreativeMatched">0</strong></div><div class="wizard-status-card"><span>Unmatched</span><strong id="wizCreativeMissing">0</strong></div></div><div id="wizCreativeList"></div><div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><div class="right"><button type="button" class="btn" data-next>Next: launch</button></div></div></div>
-
-<div class="wizard-step" data-step="7"><h2>Launch review</h2><p>Set the Meta naming rules and create the full rollout in one operation.</p><div class="wizard-grid">
-<label class="field full"><span>Campaign name pattern</span><input id="wizFbCampaign" value="{{campaign}}"></label><label class="field full"><span>Ad set name pattern</span><input id="wizFbAdset" value="{{campaign}} | {{area}}"></label><label class="field full"><span>Ad name pattern</span><input id="wizFbAd" value="{{area}} | Static A | Sign Up"></label><label class="field full"><span>Expected audience name</span><input id="wizFbAudience" value="{{area}}"></label>
-<label class="field"><span>Objective</span><select id="wizFbObjective"><option>Traffic</option><option>Outcome Leads</option><option>Conversions</option></select></label><label class="field"><span>Daily budget (£)</span><input id="wizFbBudget" type="number" min="1" step="0.01" value="10"></label>
-<label class="field full"><span>Facebook Page ID</span><input id="wizFbPage" inputmode="numeric" placeholder="Can be added later"></label><label class="field full"><span>Landing page base URL</span><input id="wizFbBase" type="url" placeholder="https://yourdomain.example"></label>
-</div><div class="wizard-review" id="wizReview" style="margin-top:18px"></div>
-<label class="wizard-launch-option"><input id="wizPublish" type="checkbox"><span><strong>Publish all microsites immediately</strong><small>Leave unchecked to create the full campaign in draft and review it first.</small></span></label>
-<div class="wizard-progress-banner" id="wizLaunchProgress"></div><div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><div class="right"><button type="submit" class="btn" id="wizCreate">Create Rapid Campaign</button></div></div></div>
-</form></section>
-
-<aside class="wizard-preview-wrap"><div class="wizard-preview-head"><div><h3>Live microsite preview</h3><small class="muted">Updates as you type</small></div><div class="wizard-preview-controls"><div class="wizard-device-toggle" role="group" aria-label="Preview device"><button type="button" class="active" data-preview-device="desktop">Desktop</button><button type="button" data-preview-device="mobile">Mobile</button></div><select id="wizPreviewArea"><option value="">Example area</option></select></div></div><div class="wizard-browser"><div class="wizard-browser-bar"><span class="wizard-dot"></span><span class="wizard-dot"></span><span class="wizard-dot"></span><span class="wizard-url" id="wizPreviewUrl">rapidcampaign / example-area</span></div><div class="wizard-site" id="wizSitePreview"></div></div></aside>
-</div></div></main></div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4"></script><script src="assets/js/supabase-config.js?v=20260901-auth3"></script><script>window.CP_ADMIN_ACTIVE="central_campaigns";</script><script src="assets/js/admin-shared-stage3c.js?v=20260901-readyfix1"></script><script src="assets/js/admin-campaign-wizard-stage2c.js?v=20260901-phase2c"></script></body></html>
+<section class="simple-flow-step" data-step="4">
+<div class="simple-flow-head"><div><h2>Review & create</h2><p>Rapid Campaign will create the local pages, publish them, and prepare the graphics/Meta export settings.</p></div></div>
+<div id="wizReview" class="simple-review-grid"></div>
+<div class="simple-final-output"><h3>After creation you will have</h3><div class="simple-output-row"><span>Local campaign pages</span><strong id="wizReviewPages">0</strong></div><div class="simple-output-row"><span>Generated Meta graphics</span><strong id="wizReviewGraphics">0</strong></div><div class="simple-output-row"><span>Personalised Meta ad rows</span><strong id="wizReviewAds">0</strong></div><div class="simple-output-row"><span>Audience convention</span><strong>{{area}}AUDIENCE.CSV</strong></div></div>
+<div id="wizLaunchProgress" class="state-banner" hidden></div>
+<div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><button id="wizCreate" type="submit" class="btn">Create campaign</button></div>
+</section>
+</form></div></div></main></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4"></script><script src="assets/js/supabase-config.js?v=20260901-auth3"></script><script>window.CP_ADMIN_ACTIVE="central_campaigns";</script><script src="assets/js/admin-shared-stage3c.js?v=20260901-readyfix1"></script><script src="assets/js/admin-campaign-simple.js?v=20260901-simple1"></script></body></html>

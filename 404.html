@@ -1,11 +1,14 @@
 <!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rapid Campaign</title></head><body><p>Opening campaign…</p><script>
 (function(){
   const parts=location.pathname.split('/').filter(Boolean);
-  const siteIndex=parts.lastIndexOf('site');
-  const slug=siteIndex>=0?parts[siteIndex+1]:'';
-  if(!slug){document.body.innerHTML='<main style="font-family:system-ui;padding:40px"><h1>Page not found</h1><p>This Rapid Campaign page does not exist.</p></main>';return;}
   const isGithub=location.hostname.endsWith('github.io');
   const base=isGithub&&parts.length?'/'+parts[0]+'/':'/';
+  let slug='';
+  const siteIndex=parts.lastIndexOf('site');
+  if(siteIndex>=0)slug=parts[siteIndex+1]||'';
+  else if(isGithub)slug=parts[1]||'';
+  else slug=parts[parts.length-1]||'';
+  if(!slug||/\.(html|js|css|png|jpg|jpeg|webp|ico)$/i.test(slug)){document.body.innerHTML='<main style="font-family:system-ui;padding:40px"><h1>Page not found</h1><p>This Rapid Campaign page does not exist.</p></main>';return;}
   const q=new URLSearchParams(location.search);q.set('site',slug);
   location.replace(base+'public-site.html?'+q.toString());
 })();
