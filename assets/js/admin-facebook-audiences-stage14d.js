@@ -2,7 +2,7 @@
 let started=false;
 async function init(){
  if(started||!window.CP_ADMIN)return;started=true;
- const {sb,orgId}=window.CP_ADMIN;let audiences=[],editingAudience=null;
+ const {sb,orgId}=window.CP_ADMIN;const byId=id=>document.getElementById(id);const audienceMessage=byId('audienceMessage');const downloadAudienceTemplate=byId('downloadAudienceTemplate');const audienceCsv=byId('audienceCsv');const audienceKpis=byId('audienceKpis');const audienceSearch=byId('audienceSearch');const audienceList=byId('audienceList');const audienceEditDialog=byId('audienceEditDialog');const audienceDialogTitle=byId('audienceDialogTitle');const audienceEditForm=byId('audienceEditForm');const audienceArea=byId('audienceArea');const audienceFilename=byId('audienceFilename');const audienceId=byId('audienceId');const audienceName=byId('audienceName');const addAudience=byId('addAudience');let audiences=[],editingAudience=null;
  const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
  const msg=(t,e=false)=>audienceMessage.innerHTML=t?`<div class="state-banner ${e?'error':'success'}">${esc(t)}</div>`:'';
  const areaKey=s=>String(s||'').normalize('NFKD').replace(/[^a-zA-Z0-9]/g,'').toLowerCase();

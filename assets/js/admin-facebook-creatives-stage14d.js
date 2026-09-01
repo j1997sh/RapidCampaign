@@ -2,7 +2,7 @@
 let started=false;
 async function init(){
  if(started||!window.CP_ADMIN)return;started=true;
- const {sb,orgId}=window.CP_ADMIN,rolloutId=new URLSearchParams(location.search).get('rollout');
+ const {sb,orgId}=window.CP_ADMIN,rolloutId=new URLSearchParams(location.search).get('rollout');const byId=id=>document.getElementById(id);const creativeCampaignMeta=byId('creativeCampaignMeta');const creativeMessage=byId('creativeMessage');const creativeCampaignTitle=byId('creativeCampaignTitle');const backToCampaign=byId('backToCampaign');const creativeFiles=byId('creativeFiles');const creativeKpis=byId('creativeKpis');const creativeSearch=byId('creativeSearch');const creativeList=byId('creativeList');
  let rollout=null,sites=[],creatives=[];
  const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
  const msg=(t,e=false)=>creativeMessage.innerHTML=t?`<div class="state-banner ${e?'error':'success'}">${esc(t)}</div>`:'';
