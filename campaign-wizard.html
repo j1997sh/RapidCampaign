@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Create campaign | Rapid Campaign</title><link rel="stylesheet" href="assets/css/style.css?v=20260901-simple1"></head>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Create campaign | Rapid Campaign</title><link rel="stylesheet" href="assets/css/style.css?v=20260901-design1"></head>
 <body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
 <div class="admin-brand"><span class="brand-mark">RC</span><span><strong>Rapid Campaign</strong><small>Campaign Control</small></span></div>
 <div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
@@ -13,13 +13,13 @@
 <button class="simple-flow-tab" data-step-tab="3"><b>3</b><span>Assets</span></button>
 <button class="simple-flow-tab" data-step-tab="4"><b>4</b><span>Review</span></button>
 </div>
-<form id="campaignWizardForm">
+<form id="campaignWizardForm" novalidate>
 <section class="simple-flow-step active" data-step="1">
 <div class="simple-flow-head"><div><h2>Campaign</h2><p>Set the campaign once. Rapid Campaign will reuse it for every local page and Meta ad.</p></div></div>
 <div class="simple-two-col">
 <div class="simple-card"><h3>Campaign page</h3>
 <label class="field"><span>Campaign name</span><input id="wizTitle" required placeholder="Save Our High Streets"></label>
-<div class="wizard-grid"><label class="field"><span>Campaign slug</span><input id="wizSlug" placeholder="save-our-high-streets"></label><label class="field"><span>Campaign domain</span><input id="wizDomain" type="url" placeholder="https://campaignname.com" required></label></div>
+<div class="wizard-grid"><label class="field"><span>Campaign slug</span><input id="wizSlug" placeholder="save-our-high-streets"></label><label class="field"><span>Campaign domain</span><input id="wizDomain" type="url" placeholder="https://campaignname.com"></label></div>
 <label class="field"><span>Headline</span><input id="wizHeadline" required value="Back our campaign in {{area}}"></label>
 <label class="field"><span>Supporting copy</span><textarea id="wizCopy" rows="5" placeholder="People across {{area}} deserve..."></textarea></label>
 <div class="wizard-grid"><label class="field"><span>CTA</span><input id="wizCta" value="Back this campaign"></label><label class="field"><span>Category</span><input id="wizCategory" placeholder="Economy"></label></div>
@@ -47,7 +47,7 @@
 </div>
 <div id="areaModePick" class="simple-area-mode">
 <div class="simple-picker-tools"><input id="wizAreaSearch" placeholder="Search known constituencies and wards"><select id="wizAreaType"><option value="all">Constituencies & wards</option><option value="constituency">Constituencies</option><option value="ward">Wards</option></select></div>
-<div id="wizKnownAreas" class="simple-checklist"><div class="workspace-empty-state"><div><p>Loading known areas…</p></div></div></div>
+<div class="simple-picker-source"><strong>650 UK Parliamentary constituencies</strong><span>Loaded from the UK Parliament constituency service. Cached wards are included too.</span></div><div id="wizKnownAreas" class="simple-checklist"><div class="workspace-empty-state"><div><p>Loading all constituencies…</p></div></div></div>
 <div class="simple-manual-add"><label class="field"><span>Add an area manually</span><div class="wizard-inline-form"><input id="wizManualArea" placeholder="e.g. Croydon South"><button id="wizManualAreaAdd" class="btn secondary small" type="button">Add</button></div></label></div>
 </div>
 <div class="simple-card compact"><div class="admin-panel-head"><div><h3>Selected areas</h3><p>One local campaign page and one Meta graphic will be generated for each area.</p></div><button id="wizClearAreas" class="btn secondary small" type="button">Clear</button></div><div id="wizSelectedAreas"></div></div>
@@ -72,4 +72,4 @@
 <div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><button id="wizCreate" type="submit" class="btn">Create campaign</button></div>
 </section>
 </form></div></div></main></div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4"></script><script src="assets/js/supabase-config.js?v=20260901-auth3"></script><script>window.CP_ADMIN_ACTIVE="central_campaigns";</script><script src="assets/js/admin-shared-stage3c.js?v=20260901-readyfix1"></script><script src="assets/js/admin-campaign-simple.js?v=20260901-simple1"></script></body></html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4"></script><script src="assets/js/supabase-config.js?v=20260901-auth3"></script><script>window.CP_ADMIN_ACTIVE="central_campaigns";</script><script src="assets/js/admin-shared-stage3c.js?v=20260901-readyfix1"></script><script src="assets/js/admin-campaign-simple.js?v=20260901-design1"></script></body></html>
