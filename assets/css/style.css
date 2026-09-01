@@ -1491,3 +1491,25 @@ table tbody tr:hover{background:#f8fbfe!important}
 #audienceList code{font-size:12px}
 #audienceList td small{display:block;color:var(--muted);margin-top:3px}
 @media(max-width:760px){.audience-add-fab{right:16px;bottom:16px}}
+
+/* Rapid Campaign Phase 1B — launch readiness */
+.readiness-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.readiness-grid>div{border:1px solid var(--line);padding:16px;background:#fff;display:grid;gap:3px}
+.readiness-grid span{color:var(--muted);font-size:12px;font-weight:800}
+.readiness-grid strong{font-size:25px;line-height:1}
+.readiness-grid small{color:var(--muted);font-weight:700}
+.readiness-grid .ready-ok{border-color:#a9d8bb;background:#f5fbf7}
+.readiness-summary{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.readiness-summary span{color:var(--muted);font-size:13px}
+.readiness-exceptions{border:1px solid var(--line);max-height:360px;overflow:auto}
+.readiness-exception{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:11px 12px;border-bottom:1px solid var(--line)}
+.readiness-exception:last-child{border-bottom:0}
+.readiness-exception>span:first-child{display:grid}
+.readiness-exception small{color:var(--muted)}
+.readiness-tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.readiness-tags b{font-size:11px;background:#fff0ef;color:#9a2824;padding:5px 7px;border:1px solid #efc8c5}
+.readiness-actions{margin-top:12px}
+#facebookSettingsMessage{margin-top:14px}
+.facebook-ads-grid .field small{display:block;color:var(--muted);font-size:12px;line-height:1.35;margin-top:5px}
+@media(max-width:850px){.readiness-grid{grid-template-columns:1fr 1fr}.readiness-summary,.readiness-exception{align-items:flex-start;flex-direction:column}.readiness-tags{justify-content:flex-start}}
+@media(max-width:520px){.readiness-grid{grid-template-columns:1fr}}

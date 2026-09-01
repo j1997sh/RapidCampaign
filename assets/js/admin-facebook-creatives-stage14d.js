@@ -13,14 +13,26 @@ async function init(){
    const matches=sites.filter(s=>fk.includes(areaKey(s.area))).sort((a,b)=>areaKey(b.area).length-areaKey(a.area).length);
    return matches[0]||null;
  }
+ async function uploadForSite(f,site){
+   const safe=f.name.replace(/[^a-zA-Z0-9._-]/g,'-');
+   const path=`central/${orgId}/facebook-creatives/${rolloutId}/${areaKey(site.area)}-${Date.now()}-${safe}`;
+   const up=await sb.storage.from('campaign-assets').upload(path,f,{contentType:f.type||undefined,upsert:false});
+   if(up.error)return {ok:false,error:up.error.message};
+   const existing=creatives.find(x=>x.area_key===areaKey(site.area));
+   const rr=await sb.rpc('org_admin_upsert_facebook_creative',{p_rollout:rolloutId,p_area:site.area,p_filename:f.name,p_storage_path:path,p_mime_type:f.type||null,p_file_size:f.size||null});
+   if(rr.error){await sb.storage.from('campaign-assets').remove([path]);return {ok:false,error:rr.error.message}}
+   if(existing?.storage_path&&existing.storage_path!==path){const rem=await sb.storage.from('campaign-assets').remove([existing.storage_path]);if(rem.error)console.warn(rem.error)}
+   return {ok:true};
+ }
  function render(){
    const q=creativeSearch.value.trim().toLowerCase();
    const byKey=new Map(creatives.map(x=>[x.area_key,x]));
    const rows=sites.filter(s=>!q||`${s.area} ${byKey.get(areaKey(s.area))?.filename||''}`.toLowerCase().includes(q));
    const matched=sites.filter(s=>byKey.has(areaKey(s.area))).length;
    creativeKpis.innerHTML=[['Microsites',sites.length],['Creatives matched',matched],['Missing',Math.max(0,sites.length-matched)]].map(x=>`<div class="admin-kpi"><span>${x[0]}</span><strong>${x[1]}</strong></div>`).join('');
-   creativeList.innerHTML=rows.length?`<div class="performance-table-wrap"><table class="performance-table"><thead><tr><th>Area</th><th>Creative</th><th>Status</th><th></th></tr></thead><tbody>${rows.map(s=>{const c=byKey.get(areaKey(s.area));return `<tr><td><strong>${esc(s.area)}</strong><small>${esc(s.slug||'')}</small></td><td>${c?`<code>${esc(c.filename)}</code>`:'—'}</td><td><span class="status-chip ${c?'published':'draft'}">${c?'Matched':'Missing'}</span></td><td>${c?`<button class="btn danger-outline small" data-delete-creative="${c.id}">Remove</button>`:''}</td></tr>`}).join('')}</tbody></table></div>`:'<div class="workspace-empty-state"><div><h3>No matching areas</h3></div></div>';
+   creativeList.innerHTML=rows.length?`<div class="performance-table-wrap"><table class="performance-table"><thead><tr><th>Area</th><th>Creative</th><th>Status</th><th></th></tr></thead><tbody>${rows.map(s=>{const c=byKey.get(areaKey(s.area));return `<tr><td><strong>${esc(s.area)}</strong><small>${esc(s.slug||'')}</small></td><td>${c?`<code>${esc(c.filename)}</code>`:'—'}</td><td><span class="status-chip ${c?'published':'draft'}">${c?'Matched':'Missing'}</span></td><td><div class="button-row"><label class="btn secondary small file-btn">${c?'Replace':'Upload for area'}<input type="file" accept="image/png,image/jpeg,image/webp" data-upload-area="${s.id}" hidden></label>${c?`<button class="btn danger-outline small" data-delete-creative="${c.id}">Remove</button>`:''}</div></td></tr>`}).join('')}</tbody></table></div>`:'<div class="workspace-empty-state"><div><h3>No matching areas</h3></div></div>';
    document.querySelectorAll('[data-delete-creative]').forEach(b=>b.onclick=async()=>{if(!confirm('Remove this creative mapping?'))return;const rr=await sb.rpc('org_admin_delete_facebook_creative',{p_creative:b.dataset.deleteCreative});if(rr.error)return msg(rr.error.message,true);if(rr.data){const rem=await sb.storage.from('campaign-assets').remove([rr.data]);if(rem.error)console.warn(rem.error)}msg('Creative removed.');await load()});
+   document.querySelectorAll('[data-upload-area]').forEach(inp=>inp.onchange=async()=>{const f=inp.files?.[0],site=sites.find(x=>x.id===inp.dataset.uploadArea);if(!f||!site)return;const result=await uploadForSite(f,site);if(result.ok){msg(`Creative saved for ${site.area}.`);await load()}else msg(result.error,true)});
  }
  async function load(){
    if(!rolloutId)return msg('Missing campaign rollout.',true);
@@ -35,12 +47,8 @@ async function init(){
    let saved=0,unmatched=[];
    for(const f of files){
      const site=detectSite(f.name);if(!site){unmatched.push(f.name);continue}
-     const safe=f.name.replace(/[^a-zA-Z0-9._-]/g,'-');
-     const path=`central/${orgId}/facebook-creatives/${rolloutId}/${areaKey(site.area)}-${Date.now()}-${safe}`;
-     const up=await sb.storage.from('campaign-assets').upload(path,f,{contentType:f.type||undefined,upsert:false});
-     if(up.error){unmatched.push(`${f.name} (${up.error.message})`);continue}
-     const rr=await sb.rpc('org_admin_upsert_facebook_creative',{p_rollout:rolloutId,p_area:site.area,p_filename:f.name,p_storage_path:path,p_mime_type:f.type||null,p_file_size:f.size||null});
-     if(rr.error){await sb.storage.from('campaign-assets').remove([path]);unmatched.push(`${f.name} (${rr.error.message})`);continue}
+     const result=await uploadForSite(f,site);
+     if(!result.ok){unmatched.push(`${f.name} (${result.error})`);continue}
      saved++;
    }
    creativeFiles.value='';msg(`${saved} creative${saved===1?'':'s'} matched and saved.${unmatched.length?` ${unmatched.length} file${unmatched.length===1?'':'s'} could not be matched.`:''}`,!!unmatched.length);await load();
