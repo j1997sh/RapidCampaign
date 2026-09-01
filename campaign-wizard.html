@@ -1,0 +1,52 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Create campaign | Rapid Campaign</title><link rel="stylesheet" href="assets/css/style.css?v=20260901-phase2a"></head>
+<body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
+<div class="admin-brand"><span class="brand-mark">RC</span><span><strong>Rapid Campaign</strong><small>Campaign Control</small></span></div>
+<div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
+<nav class="admin-nav"><a href="campaigns.html" data-admin-nav="central_campaigns">Campaigns</a><a href="audiences.html" data-admin-nav="facebook_audiences">Audience library</a><a href="geography.html" data-admin-nav="geography">Geography</a><a href="attribution.html" data-admin-nav="attribution">Attribution</a></nav>
+<div class="admin-sidebar-bottom"><button id="adminLogout" type="button">Log out</button></div>
+</aside><main class="admin-main"><header class="admin-topbar"><div><h1>Create Rapid Campaign</h1><small>One campaign in. Local websites and Meta ads out.</small></div><span class="admin-role-badge" id="adminRoleBadge">Admin</span></header>
+<div class="admin-content"><div id="wizardMessage"></div>
+<div class="wizard-shell">
+<section class="wizard-card">
+<div class="wizard-progress" id="wizardProgress">
+<button class="wizard-step-tab active" data-step-tab="1"><strong>1</strong><span>Campaign</span></button><button class="wizard-step-tab" data-step-tab="2"><strong>2</strong><span>Design</span></button><button class="wizard-step-tab" data-step-tab="3"><strong>3</strong><span>Areas</span></button><button class="wizard-step-tab" data-step-tab="4"><strong>4</strong><span>Preview</span></button><button class="wizard-step-tab" data-step-tab="5"><strong>5</strong><span>Audiences</span></button><button class="wizard-step-tab" data-step-tab="6"><strong>6</strong><span>Creative</span></button><button class="wizard-step-tab" data-step-tab="7"><strong>7</strong><span>Launch</span></button>
+</div>
+<form id="campaignWizardForm">
+<div class="wizard-step active" data-step="1"><h2>Campaign</h2><p>Set the central message once. Rapid Campaign will localise it for every area.</p><div class="wizard-grid">
+<label class="field full"><span>Campaign title</span><input id="wizTitle" required placeholder="Business Rates Campaign"></label>
+<label class="field"><span>Category</span><input id="wizCategory" placeholder="Economy"></label><label class="field"><span>Base slug</span><input id="wizSlug" placeholder="business-rates"></label>
+<label class="field full"><span>Internal summary</span><textarea id="wizSummary" rows="3"></textarea></label>
+<label class="field full"><span>Public headline</span><input id="wizHeadline" required placeholder="Back our campaign in {{area}}"><small>Use {{area}} anywhere you want the local place name inserted.</small></label>
+<label class="field full"><span>Supporting copy</span><textarea id="wizCopy" rows="5" placeholder="People across {{area}} deserve..."></textarea></label>
+<label class="field full"><span>Key points — one per line</span><textarea id="wizPoints" rows="4"></textarea></label>
+</div><div class="wizard-actions"><a class="btn secondary" href="campaigns.html">Cancel</a><div class="right"><button type="button" class="btn" data-next>Next: design</button></div></div></div>
+
+<div class="wizard-step" data-step="2"><h2>Microsite design</h2><p>Choose the visual treatment that every local site inherits. Individual areas can still be overridden later.</p><div class="wizard-grid">
+<label class="field"><span>Primary colour</span><input id="wizPrimary" type="color" value="#08254a"></label><label class="field"><span>Accent colour</span><input id="wizAccent" type="color" value="#1476d4"></label>
+<label class="field full"><span>CTA label</span><input id="wizCta" value="Back this campaign"></label>
+<label class="field full"><span>Hero image URL (optional)</span><input id="wizHero" type="url" placeholder="https://..."><small>Leave blank for the clean colour treatment.</small></label>
+</div><div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><div class="right"><button type="button" class="btn" data-next>Next: areas</button></div></div></div>
+
+<div class="wizard-step" data-step="3"><h2>Areas</h2><p>Upload the geography once. Rapid Campaign maps common constituency, ward and area column names automatically.</p>
+<div class="wizard-file-drop"><strong>Upload areas CSV</strong><p class="muted">Recognised columns include area, constituency, ward, council, region, postcode, slug and local copy overrides.</p><input id="wizAreasFile" type="file" accept=".csv,text/csv"></div>
+<div class="wizard-status-grid"><div class="wizard-status-card"><span>Areas found</span><strong id="wizAreaCount">0</strong></div><div class="wizard-status-card"><span>Columns found</span><strong id="wizColumnCount">0</strong></div><div class="wizard-status-card"><span>Rows needing attention</span><strong id="wizAreaIssues">0</strong></div></div>
+<div id="wizAreaList"></div><div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><div class="right"><button type="button" class="btn" data-next>Next: preview</button></div></div></div>
+
+<div class="wizard-step" data-step="4"><h2>Preview</h2><p>Switch between areas and check the localised campaign before anything is created.</p><div class="state-banner success" id="wizPreviewSummary">Add areas to preview local versions.</div><div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><div class="right"><button type="button" class="btn" data-next>Next: audiences</button></div></div></div>
+
+<div class="wizard-step" data-step="5"><h2>Audiences</h2><p>Rapid Campaign automatically matches the uploaded areas against the reusable Meta Audience Library.</p><div class="wizard-status-grid"><div class="wizard-status-card"><span>Areas</span><strong id="wizAudienceTotal">0</strong></div><div class="wizard-status-card"><span>Matched</span><strong id="wizAudienceMatched">0</strong></div><div class="wizard-status-card"><span>Missing</span><strong id="wizAudienceMissing">0</strong></div></div><div id="wizAudienceList"></div><div class="button-row" style="margin-top:14px"><a class="btn secondary small" href="audiences.html" target="_blank">Open Audience Library</a></div><div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><div class="right"><button type="button" class="btn" data-next>Next: creative</button></div></div></div>
+
+<div class="wizard-step" data-step="6"><h2>Creative</h2><p>Upload all local images at once. Filenames are matched against area names before the campaign is created.</p><div class="wizard-file-drop"><strong>Choose campaign images</strong><p class="muted">PNG, JPG or WebP. For example: croydon-south.png.</p><input id="wizCreativeFiles" type="file" accept="image/png,image/jpeg,image/webp" multiple></div><div class="wizard-status-grid"><div class="wizard-status-card"><span>Files selected</span><strong id="wizCreativeTotal">0</strong></div><div class="wizard-status-card"><span>Auto-matched</span><strong id="wizCreativeMatched">0</strong></div><div class="wizard-status-card"><span>Unmatched</span><strong id="wizCreativeMissing">0</strong></div></div><div id="wizCreativeList"></div><div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><div class="right"><button type="button" class="btn" data-next>Next: launch</button></div></div></div>
+
+<div class="wizard-step" data-step="7"><h2>Launch review</h2><p>Set the Meta naming rules and create the full rollout in one operation.</p><div class="wizard-grid">
+<label class="field full"><span>Campaign name pattern</span><input id="wizFbCampaign" value="{{campaign}}"></label><label class="field full"><span>Ad set name pattern</span><input id="wizFbAdset" value="{{campaign}} | {{area}}"></label><label class="field full"><span>Ad name pattern</span><input id="wizFbAd" value="{{area}} | Static A | Sign Up"></label><label class="field full"><span>Expected audience name</span><input id="wizFbAudience" value="{{area}}"></label>
+<label class="field"><span>Objective</span><select id="wizFbObjective"><option>Traffic</option><option>Outcome Leads</option><option>Conversions</option></select></label><label class="field"><span>Daily budget (£)</span><input id="wizFbBudget" type="number" min="1" step="0.01" value="10"></label>
+<label class="field full"><span>Facebook Page ID</span><input id="wizFbPage" inputmode="numeric" placeholder="Can be added later"></label><label class="field full"><span>Landing page base URL</span><input id="wizFbBase" type="url" placeholder="https://yourdomain.example"></label>
+</div><div class="wizard-review" id="wizReview" style="margin-top:18px"></div>
+<label class="wizard-launch-option"><input id="wizPublish" type="checkbox"><span><strong>Publish all microsites immediately</strong><small>Leave unchecked to create the full campaign in draft and review it first.</small></span></label>
+<div class="wizard-progress-banner" id="wizLaunchProgress"></div><div class="wizard-actions"><button type="button" class="btn secondary" data-prev>Back</button><div class="right"><button type="submit" class="btn" id="wizCreate">Create Rapid Campaign</button></div></div></div>
+</form></section>
+
+<aside class="wizard-preview-wrap"><div class="wizard-preview-head"><div><h3>Live microsite preview</h3><small class="muted">Updates as you type</small></div><div class="wizard-preview-controls"><select id="wizPreviewArea"><option value="">Example area</option></select></div></div><div class="wizard-browser"><div class="wizard-browser-bar"><span class="wizard-dot"></span><span class="wizard-dot"></span><span class="wizard-dot"></span><span class="wizard-url" id="wizPreviewUrl">rapidcampaign / example-area</span></div><div class="wizard-site" id="wizSitePreview"></div></div></aside>
+</div></div></main></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4"></script><script src="assets/js/supabase-config.js?v=20260901-auth3"></script><script>window.CP_ADMIN_ACTIVE="central_campaigns";</script><script src="assets/js/admin-shared-stage3c.js?v=20260901-readyfix1"></script><script src="assets/js/admin-campaign-wizard-stage2a.js?v=20260901-phase2a"></script></body></html>
