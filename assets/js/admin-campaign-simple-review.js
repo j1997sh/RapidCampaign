@@ -17,7 +17,7 @@ async function init(){
  const customDomainVerified=()=>domainMode()==='existing'&&['verified','connected'].includes(domainStatus());
  const domainUsable=()=>domainMode()!=='existing'||customDomainVerified();
  const effectiveBaseUrl=()=>campaignDomain()||appRoot();
- const siteUrl=s=>`${effectiveBaseUrl()}/${s.slug}`;
+ const siteUrl=s=>{const base=effectiveBaseUrl();const github=location.hostname.endsWith('github.io')||domainMode()==='temporary';return github?`${appRoot()}/public-site.html?site=${encodeURIComponent(s.slug)}`:`${base}/${s.slug}`};
  const graphicName=s=>`${s.slug}.jpg`;
  const audienceName=s=>applyPattern(metaSettings().audiencePattern||'{{area}}AUDIENCE.CSV',s);
  const replaceArea=(v,s)=>String(v||'').replace(/\{\{\s*area\s*\}\}/gi,s.area||'').replace(/\{\{\s*campaign\s*\}\}/gi,data?.rollout?.title||'Campaign');

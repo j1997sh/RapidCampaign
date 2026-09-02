@@ -1,6 +1,9 @@
 (async()=>{
 'use strict';
-const sb=window.cpSupabase,root=document.getElementById('publicSiteRoot');
+const root=document.getElementById('publicSiteRoot');
+let sb=window.cpSupabase;
+if(!sb&&window.supabase?.createClient){sb=window.supabase.createClient('https://peatzuhtfakigpqyglzt.supabase.co','sb_publishable_PkB4POQES8kc-5MriSQ_NA_LO8vPR8c')}
+if(!sb){root.innerHTML='<div class="public-state"><h1>Campaign unavailable</h1><p>The campaign data service could not be loaded. Refresh this page and try again.</p></div>';return;}
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const slugify=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
 const params=new URLSearchParams(location.search);
