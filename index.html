@@ -1,3 +1,82 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rapid Campaign — Local campaign infrastructure at scale</title><link rel="stylesheet" href="assets/css/rapid-app-v3.css?v=20260902-site1"><style>
-.rc-marketing{font-family:"Proxima Nova","Avenir Next",Arial,sans-serif;color:#0b2a50;background:#fff}.mk-nav{height:68px;border-bottom:1px solid #d9e2ec;display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,calc((100vw - 1180px)/2))}.mk-brand{display:flex;align-items:center;gap:11px;font-weight:900}.mk-brand span{width:34px;height:34px;display:grid;place-items:center;background:#1476d4;color:#fff}.mk-actions{display:flex;gap:10px;align-items:center}.mk-actions a{text-decoration:none;font-weight:800;color:#0b2a50}.mk-actions .primary{background:#1476d4;color:#fff;padding:10px 15px}.mk-hero{background:#0b2a50;color:#fff;padding:100px max(24px,calc((100vw - 1180px)/2)) 90px}.mk-hero-inner{max-width:920px}.mk-eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#9bb5d2;font-weight:900}.mk-hero h1{font-size:76px;line-height:.94;letter-spacing:-.055em;margin:18px 0 24px}.mk-hero p{font-size:22px;line-height:1.45;color:#c7d5e4;max-width:780px}.mk-hero .primary{display:inline-block;margin-top:20px;background:#1476d4;color:#fff;text-decoration:none;padding:14px 19px;font-weight:900}.mk-strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #d9e2ec}.mk-strip div{padding:26px;border-right:1px solid #d9e2ec}.mk-strip strong{display:block;font-size:28px}.mk-strip span{font-size:13px;color:#65788f;font-weight:800}.mk-section{padding:78px max(24px,calc((100vw - 1180px)/2))}.mk-section h2{font-size:48px;letter-spacing:-.04em;margin:0 0 12px}.mk-section>p{font-size:19px;color:#65788f;max-width:760px}.mk-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #d9e2ec;margin-top:36px}.mk-grid article{padding:28px;border-right:1px solid #d9e2ec}.mk-grid article:last-child{border-right:0}.mk-grid h3{margin:0 0 8px;font-size:20px}.mk-grid p{color:#65788f;line-height:1.5}.mk-flow{background:#f4f7fa}.mk-flow-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#d9e2ec;border:1px solid #d9e2ec;margin-top:34px}.mk-flow-grid div{background:#fff;padding:25px}.mk-flow-grid b{font-size:12px;color:#1476d4}.mk-flow-grid strong{display:block;margin-top:18px}.mk-footer{background:#061a34;color:#fff;padding:34px max(24px,calc((100vw - 1180px)/2));display:flex;justify-content:space-between}.mk-footer small{color:#9bb5d2}@media(max-width:800px){.mk-hero h1{font-size:48px}.mk-strip{grid-template-columns:1fr 1fr}.mk-grid{grid-template-columns:1fr}.mk-grid article{border-right:0;border-bottom:1px solid #d9e2ec}.mk-flow-grid{grid-template-columns:1fr}.mk-nav{padding:0 18px}.mk-actions a:first-child{display:none}}
-</style></head><body class="rc-marketing"><nav class="mk-nav"><div class="mk-brand"><span>RC</span>Rapid Campaign</div><div class="mk-actions"><a href="login.html">Log in</a><a class="primary" href="campaigns.html">Launch dashboard</a></div></nav><main><section class="mk-hero"><div class="mk-hero-inner"><span class="mk-eyebrow">Campaign infrastructure</span><h1>One campaign in. Hundreds of local campaign pages, graphics and Meta ads out.</h1><p>Build the master campaign once. Rapid Campaign localises the website, creative and Meta structure for every constituency or ward you choose.</p><a class="primary" href="campaigns.html">Open Rapid Campaign</a></div></section><section class="mk-strip"><div><strong>1</strong><span>MASTER CAMPAIGN</span></div><div><strong>100s</strong><span>LOCAL PAGES</span></div><div><strong>100s</strong><span>LOCAL CREATIVES</span></div><div><strong>1 click</strong><span>META STRUCTURE</span></div></section><section class="mk-section"><h2>Campaign operations, not another website builder.</h2><p>Rapid Campaign connects the parts that normally live in separate tools and spreadsheets.</p><div class="mk-grid"><article><h3>Local websites</h3><p>Design one master campaign site and automatically render the right local version for every area.</p></article><article><h3>Creative Studio</h3><p>Create one branded master graphic using local variables, then generate every area variation consistently.</p></article><article><h3>Meta automation</h3><p>Match pre-uploaded audiences and create paused campaigns, Ad Sets, creatives and Ads directly in Meta.</p></article></div></section><section class="mk-section mk-flow"><h2>One connected workflow.</h2><div class="mk-flow-grid"><div><b>01</b><strong>Create campaign</strong></div><div><b>02</b><strong>Choose areas</strong></div><div><b>03</b><strong>Design site + creative</strong></div><div><b>04</b><strong>Generate local versions</strong></div><div><b>05</b><strong>Send to Meta</strong></div></div></section></main><footer class="mk-footer"><strong>Rapid Campaign</strong><small>Campaign control at local scale.</small></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rapid Campaign</title>
+  <style>
+    :root{--navy:#0d2d52;--blue:#1476d4;--ink:#142942;--muted:#66778b;--line:#dbe3ec;--bg:#f3f6f9;--white:#fff;--danger:#b42318}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;font-family:"Proxima Nova","Avenir Next",Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    body{min-height:100vh}
+    .entry-shell{min-height:100vh;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(420px,.92fr)}
+    .entry-brand{background:var(--navy);color:#fff;padding:52px clamp(44px,7vw,110px);display:flex;flex-direction:column;justify-content:space-between;min-height:100vh}
+    .brand{display:flex;align-items:center;gap:12px;font-size:18px;font-weight:800;letter-spacing:-.01em}
+    .brand-mark{width:34px;height:34px;display:grid;place-items:center;background:var(--blue);font-size:14px;font-weight:900}
+    .brand-main{max-width:760px;padding:70px 0}
+    .brand-main h1{font-size:clamp(48px,5.3vw,78px);line-height:.98;letter-spacing:-.055em;margin:0 0 26px;max-width:760px}
+    .brand-main p{font-size:21px;line-height:1.5;color:#c7d5e4;max-width:650px;margin:0}
+    .brand-flow{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.2);max-width:700px}
+    .brand-flow span{padding:17px 22px 0 0;margin-right:22px;color:#b9c9da;font-size:14px;white-space:nowrap}
+    .entry-login{background:#fff;display:flex;align-items:center;justify-content:center;padding:48px}
+    .login-panel{width:min(100%,430px)}
+    .login-panel h2{font-size:34px;letter-spacing:-.035em;margin:0 0 8px;color:var(--navy)}
+    .login-panel>.intro{margin:0 0 32px;color:var(--muted);font-size:16px;line-height:1.45}
+    .auth-form{display:grid;gap:18px}
+    .field{display:grid;gap:7px}
+    .field span{font-size:14px;font-weight:700;color:#334b66}
+    .field input{width:100%;height:46px;border:1px solid #cfd8e3;border-radius:4px;background:#fff;padding:0 13px;font:inherit;color:var(--ink);outline:none}
+    .field input:focus{border-color:var(--blue);box-shadow:0 0 0 2px rgba(20,118,212,.12)}
+    .btn{height:46px;border:1px solid transparent;border-radius:4px;font:inherit;font-weight:800;cursor:pointer}
+    .auth-submit{background:var(--blue);color:#fff;margin-top:2px}
+    .auth-submit:hover{background:#0f68bd}
+    .auth-setup{background:#fff;border-color:#cfd8e3;color:var(--navy)}
+    .auth-setup:hover{background:#f7f9fb}
+    #adminLoginMessage{margin-top:16px;font-size:14px;line-height:1.4}
+    #adminLoginMessage .error,#adminLoginMessage.error{color:var(--danger)}
+    .login-note{margin-top:28px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;line-height:1.45;color:#8491a0}
+    .mobile-brand{display:none}
+    @media(max-width:900px){
+      .entry-shell{grid-template-columns:1fr;min-height:100vh}
+      .entry-brand{display:none}
+      .entry-login{min-height:100vh;padding:30px 22px}
+      .mobile-brand{display:flex;margin-bottom:54px}
+      .login-panel h2{font-size:31px}
+    }
+  </style>
+</head>
+<body>
+  <main class="entry-shell">
+    <section class="entry-brand">
+      <div class="brand"><span class="brand-mark">RC</span><span>Rapid Campaign</span></div>
+      <div class="brand-main">
+        <h1>One campaign. Every local version.</h1>
+        <p>Create the campaign once, then build local websites, campaign graphics and paused Meta ads for every constituency or ward you need.</p>
+      </div>
+      <div class="brand-flow" aria-label="Rapid Campaign workflow">
+        <span>Campaign</span><span>Local pages</span><span>Creative</span><span>Meta</span>
+      </div>
+    </section>
+
+    <section class="entry-login">
+      <div class="login-panel">
+        <div class="brand mobile-brand"><span class="brand-mark">RC</span><span>Rapid Campaign</span></div>
+        <h2>Sign in</h2>
+        <p class="intro">Open your campaigns and continue working.</p>
+        <form id="adminLoginForm" class="auth-form">
+          <label class="field"><span>Email address</span><input id="adminEmail" type="email" autocomplete="email" required></label>
+          <label class="field"><span>Password</span><input id="adminPassword" type="password" autocomplete="current-password" required></label>
+          <button class="btn auth-submit" type="submit">Sign in</button>
+          <button class="btn auth-setup" id="adminSetup" type="button">Set up my account</button>
+        </form>
+        <div id="adminLoginMessage"></div>
+        <p class="login-note">Rapid Campaign is a campaign operations workspace for authorised users.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4"></script>
+  <script src="assets/js/supabase-config.js?v=20260901-auth3"></script>
+  <script src="assets/js/admin-login-stage3c.js?v=20260902-home1"></script>
+</body>
+</html>
