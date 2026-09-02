@@ -1,0 +1,58 @@
+/* Rapid Campaign navigation system v6 */
+:root{--rc-nav-ink:#102f55;--rc-nav-muted:#6f7f92;--rc-nav-line:#d9e1e9;--rc-nav-soft:#f4f7fa;--rc-nav-blue:#1476d4;--rc-nav-white:#fff}
+
+/* Global app header */
+.rc-topnav{min-height:58px;padding:0 30px;display:flex;align-items:center;justify-content:space-between;background:#0d2f55;border:0;box-shadow:none}
+.rc-topnav-brand{display:flex;align-items:center;gap:11px;color:#fff;text-decoration:none}
+.rc-topnav-brand .brand-mark{width:30px;height:30px;display:grid;place-items:center;background:#1476d4;color:#fff;border-radius:2px;font-size:12px;font-weight:800;letter-spacing:.01em}
+.rc-topnav-brand strong{display:block;font-size:14px;line-height:1.15;font-weight:750;letter-spacing:-.01em}
+.rc-topnav-brand small{display:block;margin-top:2px;color:#afc0d3;font-size:11px;line-height:1.1;letter-spacing:0;text-transform:none}
+.rc-topnav-actions{display:flex;align-items:center;gap:6px}
+.rc-top-link,.rc-logout{appearance:none;border:0;background:transparent;color:#dce7f1;padding:9px 10px;text-decoration:none;font:inherit;font-size:13px;font-weight:650;cursor:pointer;border-radius:3px}
+.rc-top-link:hover,.rc-logout:hover{background:rgba(255,255,255,.08);color:#fff}
+.admin-role-badge{border:0!important;background:rgba(255,255,255,.10)!important;color:#dce7f1!important;border-radius:3px!important;padding:7px 9px!important;font-size:12px!important;font-weight:650!important;text-transform:none!important;letter-spacing:0!important}
+
+/* Campaign heading */
+.hub-heading{padding-top:4px;margin-bottom:2px!important;align-items:flex-end}
+.hub-heading h1{letter-spacing:-.025em}
+.hub-heading .btn.secondary.small{border:0;background:transparent;padding:8px 0;color:#53677e;font-weight:650}
+.hub-heading .btn.secondary.small:hover{color:#102f55;background:transparent}
+
+/* Primary campaign section navigation */
+.campaign-primary-nav{display:flex!important;align-items:stretch!important;gap:2px!important;margin:14px 0 0!important;padding:0!important;border:0!important;border-bottom:1px solid var(--rc-nav-line)!important;background:transparent!important;overflow-x:auto;scrollbar-width:none}
+.campaign-primary-nav::-webkit-scrollbar{display:none}
+.campaign-primary-nav button{position:relative;appearance:none!important;border:0!important;background:transparent!important;margin:0!important;padding:12px 14px 13px!important;color:#66778a!important;font:inherit!important;font-size:14px!important;font-weight:650!important;line-height:1.2!important;letter-spacing:-.005em!important;white-space:nowrap;cursor:pointer;border-radius:3px 3px 0 0!important;transition:background .12s ease,color .12s ease}
+.campaign-primary-nav button:hover{color:#18395f!important;background:#f2f6fa!important}
+.campaign-primary-nav button.active{color:#102f55!important;background:#fff!important;font-weight:750!important}
+.campaign-primary-nav button.active:after{content:"";position:absolute;left:12px;right:12px;bottom:-1px;height:3px;background:var(--rc-nav-blue)}
+
+/* Secondary navigation */
+.campaign-subtabs{display:none!important;align-items:center!important;gap:4px!important;min-height:48px!important;margin:0 0 26px!important;padding:8px 0 7px!important;border:0!important;border-bottom:1px solid #e8edf2!important;background:transparent!important;overflow-x:auto;scrollbar-width:none}
+.campaign-subtabs.visible{display:flex!important}
+.campaign-subtabs::-webkit-scrollbar{display:none}
+.campaign-subtabs button{display:none!important;appearance:none!important;border:0!important;background:transparent!important;padding:7px 11px!important;color:#788798!important;font:inherit!important;font-size:13px!important;font-weight:600!important;line-height:1.2!important;cursor:pointer;border-radius:3px!important;white-space:nowrap;transition:background .12s ease,color .12s ease}
+.campaign-subtabs button.group-visible{display:block!important}
+.campaign-subtabs button:hover{background:#f1f5f8!important;color:#274667!important}
+.campaign-subtabs button.active{background:#eaf2fa!important;color:#0f4f8d!important;font-weight:700!important;box-shadow:inset 3px 0 0 #1476d4}
+
+/* Dashboard / wizard global menu treatment */
+.rc-app-main .rc-page-heading{margin-bottom:22px}
+.rc-app-main .admin-tabs,.rc-app-main .simple-tabs,.rc-app-main [role="tablist"]{border-color:var(--rc-nav-line)}
+.rc-app-main .admin-tabs button,.rc-app-main .simple-tabs button,.rc-app-main [role="tablist"] button{border-radius:3px!important}
+
+/* Button rows that act like local menus */
+.button-row{gap:7px}
+.button-row .btn.secondary{background:#fff;border-color:#cbd6e1;color:#314b68}
+.button-row .btn.secondary:hover{background:#f5f8fb;border-color:#aebdcb}
+
+/* Reduce boxed-menu feel on page headers */
+.hub-section-head{border-bottom:0!important;padding-bottom:0!important;margin-bottom:18px!important}
+.hub-section-head h2{font-size:20px!important;letter-spacing:-.018em!important}
+.hub-section-head p{margin-top:4px!important;max-width:760px}
+
+/* Mobile: global nav becomes compact and campaign nav scrolls cleanly */
+@media(max-width:760px){
+ .rc-topnav{min-height:54px;padding:0 14px}.rc-topnav-brand small{display:none}.rc-topnav-actions{gap:0}.admin-role-badge{display:none!important}.rc-top-link,.rc-logout{padding:8px 7px;font-size:12px}
+ .campaign-primary-nav{margin-top:10px!important}.campaign-primary-nav button{padding:11px 11px 12px!important;font-size:13px!important}.campaign-primary-nav button.active:after{left:9px;right:9px}
+ .campaign-subtabs{gap:2px!important;padding:7px 0!important}.campaign-subtabs button{padding:7px 9px!important;font-size:12px!important}
+}
