@@ -21,7 +21,7 @@ const points=Array.isArray(site.key_points)?site.key_points:[];const website=pkg
 const attribution={};['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(k=>{const v=params.get(k);if(v)attribution[k]=v});
 attribution.landing_path=location.pathname;attribution.area=site.area;attribution.campaign=rollout.title;
 let sid=sessionStorage.getItem('rapid_campaign_session');if(!/^[0-9a-f-]{36}$/i.test(sid||'')){sid=crypto.randomUUID();sessionStorage.setItem('rapid_campaign_session',sid)}
-sb.rpc('public_track_rapid_campaign_visit',{p_site:site.id,p_session_id:sid,p_full_url:location.href,p_referrer:document.referrer||'',p_attribution:attribution}).catch(()=>{});
+Promise.resolve(sb.rpc('public_track_rapid_campaign_visit',{p_site:site.id,p_session_id:sid,p_full_url:location.href,p_referrer:document.referrer||'',p_attribution:attribution})).catch(()=>{});
 const variables={area:site.area||'',postcode:site.postcode||'',council:site.council||'',region:site.region||'',...(site.settings?.variables||{})};
 const formFields=site.settings?.form_fields||pkg.settings?.form_fields||{name:true,email:true,postcode:true,phone:false};
 const replaceVars=value=>String(value??'').replace(/\{\{\s*([a-zA-Z0-9_]+)\s*\}\}/g,(all,key)=>Object.prototype.hasOwnProperty.call(variables,key)?String(variables[key]??''):all);
