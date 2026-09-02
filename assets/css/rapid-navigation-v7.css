@@ -1,0 +1,86 @@
+/* Rapid Campaign navigation system v7 — structural sidebar redesign */
+:root{--rc7-ink:#142a43;--rc7-muted:#667789;--rc7-line:#d9e0e7;--rc7-soft:#f4f6f8;--rc7-blue:#1676d2;--rc7-navy:#0b2f55;--rc7-white:#fff}
+
+/* Global navigation: deliberately different from the old navy banner */
+.rc-topnav{min-height:58px!important;padding:0 28px!important;background:#fff!important;border-bottom:1px solid var(--rc7-line)!important;box-shadow:none!important;color:var(--rc7-ink)!important}
+.rc-topnav-brand{color:var(--rc7-ink)!important;gap:10px!important}
+.rc-topnav-brand .brand-mark{width:30px!important;height:30px!important;background:var(--rc7-navy)!important;border-radius:2px!important;color:#fff!important}
+.rc-topnav-brand strong{color:var(--rc7-ink)!important;font-size:14px!important}
+.rc-topnav-brand small{color:#788697!important;text-transform:none!important;letter-spacing:0!important}
+.rc-topnav-actions{gap:4px!important}
+.rc-top-link,.rc-logout{color:#43576d!important;background:transparent!important;border:0!important;border-radius:2px!important;padding:9px 10px!important}
+.rc-top-link:hover,.rc-logout:hover{background:#eef2f5!important;color:#102f55!important}
+.admin-role-badge{background:#edf1f5!important;color:#53677c!important;border:0!important;border-radius:2px!important;text-transform:none!important;letter-spacing:0!important}
+
+/* App page canvas */
+.rc-app-body{background:#eef1f4!important}
+.rc-app-main-wide{max-width:1540px!important;padding:28px 28px 48px!important}
+.hub-heading{margin:0 0 18px!important;padding:0!important;align-items:flex-end!important}
+.hub-heading h1{font-size:30px!important;letter-spacing:-.035em!important;margin:0 0 3px!important}
+.hub-heading p{color:#748294!important}
+.hub-heading .btn.secondary.small{background:transparent!important;border:0!important;padding:7px 0!important;color:#52677e!important}
+
+/* Two-column workspace */
+.campaign-layout-v7{display:grid;grid-template-columns:236px minmax(0,1fr);gap:0;align-items:start;border:1px solid #d6dde5;background:#fff;min-height:720px}
+.campaign-sidebar-v7{position:sticky;top:16px;align-self:start;min-height:718px;background:#f5f7f9;border-right:1px solid #d6dde5;padding:18px 14px 22px;box-sizing:border-box}
+.campaign-content-v7{min-width:0;padding:26px 30px 42px;background:#fff}
+.sidebar-kicker-v7,.sidebar-subhead-v7{font-size:11px;font-weight:700;color:#8a96a4;text-transform:none;letter-spacing:0;margin:2px 10px 10px}
+.sidebar-subhead-v7{margin-top:24px;padding-top:18px;border-top:1px solid #dde3e9}
+
+/* Primary nav is now a vertical product rail, not tabs */
+.campaign-primary-nav{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:3px!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important;overflow:visible!important}
+.campaign-primary-nav button{position:relative!important;width:100%!important;text-align:left!important;appearance:none!important;border:0!important;border-radius:3px!important;background:transparent!important;color:#53667a!important;padding:10px 11px 10px 38px!important;font:inherit!important;font-size:14px!important;font-weight:650!important;line-height:1.25!important;cursor:pointer!important;transition:none!important}
+.campaign-primary-nav button:hover{background:#e9eef3!important;color:#173b65!important}
+.campaign-primary-nav button.active{background:#dfeaf5!important;color:#0b3764!important;font-weight:750!important;box-shadow:inset 3px 0 0 var(--rc7-blue)!important}
+.campaign-primary-nav button.active:after{display:none!important}
+.campaign-primary-nav button:before{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;text-align:center;color:#7b8999;font-size:13px;font-weight:700}
+.campaign-primary-nav button[data-hub-group="overview"]:before{content:"●"}
+.campaign-primary-nav button[data-hub-group="campaign"]:before{content:"▤"}
+.campaign-primary-nav button[data-hub-group="creative"]:before{content:"◆"}
+.campaign-primary-nav button[data-hub-group="advertising"]:before{content:"↗"}
+.campaign-primary-nav button[data-hub-group="people"]:before{content:"◉"}
+.campaign-primary-nav button[data-hub-group="setup"]:before{content:"⚙";font-size:12px}
+.campaign-primary-nav button.active:before{color:#0f67b3}
+
+/* Secondary nav becomes vertical contextual navigation */
+.campaign-subtabs{display:none!important;flex-direction:column!important;align-items:stretch!important;gap:2px!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important;min-height:0!important;overflow:visible!important}
+.campaign-subtabs.visible{display:flex!important}
+.campaign-subtabs button{display:none!important;width:100%!important;text-align:left!important;border:0!important;border-radius:2px!important;background:transparent!important;color:#6a7989!important;padding:8px 11px!important;font:inherit!important;font-size:13px!important;font-weight:600!important;line-height:1.2!important;cursor:pointer!important}
+.campaign-subtabs button.group-visible{display:block!important}
+.campaign-subtabs button:hover{background:#e9eef3!important;color:#274867!important}
+.campaign-subtabs button.active{background:#fff!important;color:#123e68!important;font-weight:700!important;box-shadow:inset 3px 0 0 #8dbde9!important}
+
+/* Content panels are no longer visually part of the menu */
+.campaign-hub-panel{margin:0!important}
+.campaign-hub-panel>.hub-section-head:first-child{margin-top:0!important;padding-top:0!important}
+.hub-section-head{margin-bottom:22px!important;border:0!important;padding-bottom:0!important}
+.hub-section-head h2{font-size:24px!important;letter-spacing:-.025em!important;margin-bottom:4px!important}
+.hub-section-head p{font-size:14px!important;color:#718093!important;max-width:720px!important}
+
+/* Make content sections feel like working surfaces, not stacked AI cards */
+.campaign-content-v7 .admin-panel,.campaign-content-v7 .hub-form-card{border:1px solid #dbe1e7!important;box-shadow:none!important;border-radius:0!important;background:#fff!important}
+.campaign-content-v7 .admin-panel-head{background:#fbfcfd!important;border-bottom:1px solid #e3e8ed!important}
+.campaign-content-v7 .simple-note{border-radius:0!important}
+.campaign-content-v7 .status-chip{border-radius:2px!important}
+
+/* Dashboard and wizard get the new light global navigation even without sidebar */
+body:not(.campaign-hub) .rc-page-heading{margin-bottom:22px!important}
+
+@media(max-width:920px){
+ .rc-app-main-wide{padding:18px 14px 34px!important}
+ .campaign-layout-v7{grid-template-columns:1fr!important;border-left:0;border-right:0}
+ .campaign-sidebar-v7{position:static!important;min-height:auto!important;border-right:0!important;border-bottom:1px solid #d6dde5!important;padding:10px 12px!important}
+ .sidebar-kicker-v7,.sidebar-subhead-v7{display:none!important}
+ .campaign-primary-nav{flex-direction:row!important;overflow-x:auto!important;gap:3px!important}
+ .campaign-primary-nav button{width:auto!important;white-space:nowrap!important;padding:9px 11px!important}
+ .campaign-primary-nav button:before{display:none!important}
+ .campaign-primary-nav button.active{box-shadow:inset 0 -3px 0 var(--rc7-blue)!important}
+ .campaign-subtabs.visible{flex-direction:row!important;overflow-x:auto!important;margin-top:8px!important;padding-top:8px!important;border-top:1px solid #dde3e9!important}
+ .campaign-subtabs button{width:auto!important;white-space:nowrap!important}
+ .campaign-subtabs button.active{box-shadow:inset 0 -2px 0 #8dbde9!important}
+ .campaign-content-v7{padding:22px 16px 34px!important}
+}
+@media(max-width:620px){
+ .rc-topnav{padding:0 12px!important}.rc-topnav-brand small,.admin-role-badge{display:none!important}.rc-top-link{display:none!important}
+ .hub-heading{align-items:flex-start!important;gap:10px!important}.hub-heading h1{font-size:26px!important}
+}
