@@ -15,9 +15,9 @@ function fail(msg){root.innerHTML=`<div class="public-state"><h1>Campaign unavai
 if(!slug){fail('No campaign area was specified.');return}
 const rr=await sb.rpc('public_rapid_campaign_site',{p_slug:slug,p_hostname:location.hostname});
 if(rr.error||!rr.data){fail('This campaign microsite is not currently live.');return}
-const {site,rollout}=rr.data,pkg=rollout.package||{},brand={...(pkg.branding||{}),...(site.branding||{})};
+const {site,rollout}=rr.data,pkg=rollout.package||{},override=site.settings?.local_override||{},brand={...(pkg.branding||{}),...(site.branding||{}),...(override.hero_image?{hero_image:override.hero_image}:{}),...(override.primary?{primary:override.primary}:{}),...(override.secondary?{secondary:override.secondary}:{})};
 const primary=brand.primary||brand.navy||'#08254a',secondary=brand.secondary||brand.blue||'#1476d4',hero=brand.hero_image||brand.hero||'',logo=brand.logo_url||brand.logo||'';
-const points=Array.isArray(site.key_points)?site.key_points:[];const website=pkg.branding?.website_studio||null;
+const points=Array.isArray(override.key_points)&&override.key_points.length?override.key_points:(Array.isArray(site.key_points)?site.key_points:[]);const website=pkg.branding?.website_studio||null;
 const attribution={};['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(k=>{const v=params.get(k);if(v)attribution[k]=v});
 attribution.landing_path=location.pathname;attribution.area=site.area;attribution.campaign=rollout.title;
 let sid=sessionStorage.getItem('rapid_campaign_session');if(!/^[0-9a-f-]{36}$/i.test(sid||'')){sid=crypto.randomUUID();sessionStorage.setItem('rapid_campaign_session',sid)}
@@ -25,7 +25,7 @@ Promise.resolve(sb.rpc('public_track_rapid_campaign_visit',{p_site:site.id,p_ses
 const variables={area:site.area||'',postcode:site.postcode||'',council:site.council||'',region:site.region||'',...(site.settings?.variables||{})};
 const formFields=site.settings?.form_fields||pkg.settings?.form_fields||{name:true,email:true,postcode:true,phone:false};
 const replaceVars=value=>String(value??'').replace(/\{\{\s*([a-zA-Z0-9_]+)\s*\}\}/g,(all,key)=>Object.prototype.hasOwnProperty.call(variables,key)?String(variables[key]??''):all);
-const headline=replaceVars(site.headline||site.title||rollout.title),supporting=replaceVars(site.supporting_copy||pkg.supporting_copy||''),cta=replaceVars(pkg.cta||'Back this campaign');
+const headline=replaceVars(override.headline||site.headline||site.title||rollout.title),supporting=replaceVars(override.supporting_copy||site.supporting_copy||pkg.supporting_copy||''),cta=replaceVars(override.cta||pkg.cta||'Back this campaign');
 document.title=`${site.area} | ${replaceVars(rollout.title)}`;
 const defaultSections=[{type:'hero',visible:true,eyebrow:'{{area}}',title:headline,copy:supporting,button:cta,padding:70},{type:'points',visible:true,title:'Our campaign for {{area}}',padding:55},{type:'support',visible:true,title:cta,copy:'Add your details to support this campaign in {{area}}.',button:cta,padding:55},{type:'footer',visible:true,title:rollout.title,copy:'{{area}}',padding:28}];
 const sections=(website?.sections||defaultSections).filter(x=>x.visible!==false),wPrimary=website?.primary||primary,wSecondary=website?.secondary||secondary;
