@@ -1,0 +1,25 @@
+
+/* v22: make Ads-only and Landing Page workspaces match the lighter operations UI */
+body.rc-secondary-v22{background:#f4f7f9;color:#132b47}
+.rc-secondary-v22.cp-layout{display:grid;grid-template-columns:210px minmax(0,1fr);min-height:100vh}
+.rc-secondary-v22 .cp-sidebar{position:sticky;top:0;height:100vh;background:#eef3f7;color:#27435f;border-right:1px solid #cbd7e2;padding:0;display:flex;flex-direction:column}
+.rc-secondary-v22 .cp-brand{height:68px;background:#fff;border-bottom:1px solid #cbd7e2;padding:0 18px;display:flex;align-items:center;gap:10px;color:#173653;text-decoration:none}
+.rc-secondary-v22 .cp-mark{background:transparent;color:#7e98af;width:auto;height:auto;font-size:11px}
+.rc-secondary-v22 .cp-campaign-context,.rc-secondary-v22 .landing-sidebar-campaign{padding:18px 14px;border-bottom:1px solid #cbd7e2;background:#e9f0f5}
+.rc-secondary-v22 .cp-campaign-context strong,.rc-secondary-v22 .landing-sidebar-campaign strong{display:block;color:#111;font-size:15px;margin-bottom:4px}
+.rc-secondary-v22 .cp-campaign-context span,.rc-secondary-v22 .landing-sidebar-campaign span{color:#536a80;font-size:12px}
+.rc-secondary-v22 .cp-global-nav,.rc-secondary-v22 .landing-section-nav{padding:12px 8px;display:flex;flex-direction:column;gap:2px}
+.rc-secondary-v22 .cp-global-nav a,.rc-secondary-v22 .landing-section-nav a{color:#36516b;text-decoration:none;padding:10px 12px;border-left:3px solid transparent;background:transparent;font-size:14px}
+.rc-secondary-v22 .cp-global-nav a.active,.rc-secondary-v22 .landing-section-nav a.active{background:#dcecf8;border-left-color:#1476d4;color:#143b61;font-weight:700}
+.rc-secondary-v22 .cp-sidebar-bottom{margin-top:auto;border-top:1px solid #cbd7e2;padding:14px 18px}.rc-secondary-v22 .cp-sidebar-bottom a{color:#48657f;text-decoration:none;font-size:13px}
+.rc-secondary-v22 .cp-main{min-width:0;background:#f4f7f9}
+.rc-secondary-v22 .ads-shell,.rc-secondary-v22 .landing-editor-wrap{max-width:1280px;margin:0 auto;padding:28px 34px 60px}
+.rc-secondary-v22 .ads-hero,.rc-secondary-v22 .landing-editor-head{background:transparent;border:0;padding:0 0 18px;margin:0 0 18px;border-bottom:1px solid #cdd9e5}
+.rc-secondary-v22 .ads-hero h1,.rc-secondary-v22 .landing-editor-head h1{font-size:27px;color:#132b47;margin:0 0 6px}
+.rc-secondary-v22 .admin-panel,.rc-secondary-v22 .landing-controls,.rc-secondary-v22 .landing-preview-shell,.rc-secondary-v22 .landing-publish-panel{background:#fff;border:1px solid #cdd9e5;border-radius:0;box-shadow:none}
+.rc-secondary-v22 .ads-summary-strip{background:#fff;border:1px solid #cdd9e5}
+.rc-secondary-v22 .btn{border-radius:0;box-shadow:none}
+.rc-secondary-v22 .rc-org-switcher,.rc-secondary-v22 [data-org-switcher]{display:none!important}
+@media(max-width:850px){.rc-secondary-v22.cp-layout{display:block}.rc-secondary-v22 .cp-sidebar{position:relative;height:auto}.rc-secondary-v22 .cp-global-nav,.rc-secondary-v22 .landing-section-nav{flex-direction:row;overflow:auto}.rc-secondary-v22 .ads-shell,.rc-secondary-v22 .landing-editor-wrap{padding:20px 14px}}
+/* Ads area picker */
+.ads-area-picker{margin-top:8px}.ads-area-mode{display:none}.ads-area-mode.active{display:block}.ads-area-picker .simple-checklist{max-height:470px;overflow:auto}.ads-area-picker .simple-card.compact{margin-top:12px}
