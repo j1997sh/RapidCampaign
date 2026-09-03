@@ -1,10 +1,9 @@
 <!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rapid Campaign</title>
-<link rel="stylesheet" href="assets/css/style.css?v=20260901-shell1"><link rel="stylesheet" href="assets/css/rapid-app-v2.css?v=20260901-1907"><link rel="stylesheet" href="assets/css/campaign-platform-v16.css?v=20260903-stable16"><link rel="stylesheet" href="assets/css/campaign-ops-global-v181.css?v=20260903-ops181"></head>
+<link rel="stylesheet" href="assets/css/style.css?v=20260901-shell1"><link rel="stylesheet" href="assets/css/rapid-app-v2.css?v=20260901-1907"><link rel="stylesheet" href="assets/css/campaign-platform-v16.css?v=20260903-stable16"><link rel="stylesheet" href="assets/css/campaign-ops-global-v181.css?v=20260903-ops181"><link rel="stylesheet" href="assets/css/campaign-ops-refine-v19.css?v=20260903-refine19"></head>
 <body class="admin-body rc-app-body cp-layout ops-global">
 <aside class="cp-sidebar ops-sidebar">
  <a class="cp-brand" href="campaigns.html"><span class="cp-mark">RC</span><span><strong>Rapid Campaign</strong></span></a>
  <nav class="ops-main-nav"><a class="active" href="campaigns.html">Home</a><a href="#campaigns">Campaigns</a><a href="#create">New campaign</a></nav>
- <div class="ops-side-section"><span>Organisation</span><select id="organisationSwitcher" aria-label="Organisation"></select><a href="organisations.html">Manage organisations</a></div>
  <div class="cp-sidebar-bottom"><a href="index.html" data-action="logout">Log out</a></div>
 </aside>
 <main class="cp-main ops-main">
@@ -12,7 +11,7 @@
  <div id="centralCampaignsMessage"></div>
  <div class="ops-content">
   <div class="ops-breadcrumbs">Home</div>
-  <div class="ops-info-bar" id="create"><div><strong>Create something new</strong><span>Choose the job you need to do.</span></div></div>
+  <div class="ops-info-bar" id="create"><strong>Create something new</strong></div>
   <section class="ops-section">
    <div class="ops-task-grid">
     <a class="ops-task-tile" href="campaign-wizard.html"><span class="ops-task-icon">▤</span><strong>Campaign + website</strong><small>Local pages, forms, creative and Meta ads.</small></a>
@@ -21,7 +20,7 @@
    </div>
   </section>
   <section class="ops-section" id="campaigns">
-   <div class="ops-section-title"><div><h1>Campaigns</h1><p>Open or manage existing work.</p></div><select id="centralCampaignStatusFilter"><option value="">All statuses</option><option value="active">Active</option><option value="draft">Draft</option><option value="paused">Paused</option><option value="ended">Ended</option><option value="archived">Archived</option></select></div>
+   <div class="ops-section-title"><div><h1>Campaigns</h1></div><select id="centralCampaignStatusFilter"><option value="">All statuses</option><option value="active">Active</option><option value="draft">Draft</option><option value="paused">Paused</option><option value="ended">Ended</option><option value="archived">Archived</option></select></div>
    <div id="centralCampaignsList" class="ops-campaign-list"><div class="ops-loading">Loading campaigns…</div></div>
   </section>
  </div>

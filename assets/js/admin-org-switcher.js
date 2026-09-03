@@ -8,7 +8,7 @@
   const items=r.data; let active=items.find(x=>x.is_active)||items[0];
   const host=document.querySelector('.cp-sidebar'); if(!host)return;
   const block=document.createElement('div');block.className='rc-org-switcher';
-  block.innerHTML=`<label>Organisation<select id="rcOrganisationSelect">${items.map(x=>`<option value="${x.organisation_id}" ${x.organisation_id===active.organisation_id?'selected':''}>${escapeHtml(x.organisation_name)}</option>`).join('')}</select></label><button id="rcNewOrganisation" type="button">New organisation</button><a class="rc-org-manage" href="organisations.html">Manage organisations</a>`;
+  block.innerHTML=`<label><span>Organisation</span><select id="rcOrganisationSelect">${items.map(x=>`<option value="${x.organisation_id}" ${x.organisation_id===active.organisation_id?'selected':''}>${escapeHtml(x.organisation_name)}</option>`).join('')}</select></label><div class="rc-org-links"><button id="rcNewOrganisation" type="button">New</button><a class="rc-org-manage" href="organisations.html">Manage</a></div>`;
   const bottom=host.querySelector('.cp-sidebar-bottom'); host.insertBefore(block,bottom||null);
   block.querySelector('#rcOrganisationSelect').onchange=async e=>{const s=await sb.rpc('rapid_campaign_set_active_organisation',{p_org:e.target.value});if(s.error)return alert(s.error.message);location.href='campaigns.html'};
   block.querySelector('#rcNewOrganisation').onclick=async()=>{const name=prompt('Organisation name');if(!name?.trim())return;const c=await sb.rpc('rapid_campaign_create_organisation',{p_name:name.trim()});if(c.error)return alert(c.error.message);location.href='campaigns.html'};
