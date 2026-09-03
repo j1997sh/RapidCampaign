@@ -1,0 +1,24 @@
+/* Rapid Campaign UI cleanup v12 */
+
+/* Sidebar: natural left alignment, no centred/menu-card feel */
+.cp-sidebar{padding:22px 18px 18px!important}.cp-brand{padding:0 4px 22px!important;justify-content:flex-start!important}.cp-brand strong{text-align:left!important}.cp-campaign-context{margin:0 0 18px!important;padding:14px 12px!important}.cp-campaign-context strong,.cp-campaign-context span{text-align:left!important}.cp-campaign-nav .campaign-primary-nav,.cp-global-nav{align-items:stretch!important}.cp-campaign-nav .campaign-primary-nav button,.cp-global-nav a{text-align:left!important;padding:11px 12px 11px 20px!important;justify-content:flex-start!important}.cp-campaign-nav .campaign-primary-nav button.active,.cp-global-nav a.active{background:transparent!important}.cp-campaign-nav .campaign-primary-nav button.active:before,.cp-global-nav a.active:before{width:3px!important}.cp-campaign-nav .campaign-primary-nav button:hover,.cp-global-nav a:hover{background:rgba(255,255,255,.045)!important}.cp-sidebar-bottom{padding:15px 4px 0!important;gap:10px!important}.cp-sidebar-bottom a,.cp-sidebar-bottom button{text-align:left!important;color:#d5e2ee!important}.cp-nav-label,.cp-user{display:none!important}
+
+/* Header: utility only */
+.cp-workspace-header{height:52px!important;margin-bottom:24px!important}.cp-workspace-header>span:empty{display:block}.cp-workspace-header>div{gap:18px!important}.cp-workspace-header a,.cp-workspace-header button{font-size:13px!important;font-weight:650!important}.cp-workspace-header span:not(:empty){font-weight:500!important}
+
+/* Typography: remove the common generated-dashboard tells */
+.simple-eyebrow,.cp-nav-label,.studio-section>strong,.performance-table th,.rc-domain-url span,.domain-pattern span,.simple-core-kpis span,.simple-core-kpis small,.rc-home-summary span,.simple-selected-count span,.workspace-kicker{letter-spacing:0!important;text-transform:none!important}.simple-eyebrow{font-size:13px!important;font-weight:600!important;color:#738297!important}.studio-section>strong{font-size:14px!important;font-weight:700!important}.performance-table th{font-size:12px!important;font-weight:700!important}.hub-section-head h2{font-size:24px!important;letter-spacing:-.02em!important}.hub-section-head p,.admin-panel-head p,.rc-page-heading p{line-height:1.45!important}.rc-page-heading h1{letter-spacing:-.035em!important}
+
+/* Less boxed and less over-signalled */
+.admin-panel,.hub-form-card,.domain-current-card,.domain-option-card,.performance-table-wrap{border-color:#d9e1e9!important}.admin-panel-head{padding:14px 16px!important}.state-banner{border-radius:0!important}.rc-domain-status,.status-badge,.badge{border-radius:2px!important;text-transform:none!important;letter-spacing:0!important}.btn{border-radius:2px!important}.field input,.field textarea,.field select{border-radius:0!important}.simple-note,.workspace-empty-state{border-radius:0!important}
+
+/* Workspace subnavigation: plain editorial links rather than component tabs */
+.cp-workspace-subnav{gap:20px!important;background:transparent!important;border:0!important;border-bottom:1px solid #d7dfe7!important;padding:0!important;margin:0 0 24px!important}.cp-workspace-subnav button{padding:9px 0 10px!important;border:0!important;border-bottom:2px solid transparent!important;background:transparent!important;font-size:13px!important;font-weight:600!important;color:#65758a!important}.cp-workspace-subnav button.active{color:#102f55!important;border-bottom-color:#168ee1!important;background:transparent!important}.cp-workspace-subnav button:hover{background:transparent!important;color:#102f55!important}
+
+/* Campaign listing: make dashboard functional, not promotional */
+.rc-home-hero-clean{min-height:0!important;background:transparent!important;color:#102f55!important;border:0!important;padding:0 0 26px!important;display:flex!important;align-items:flex-end!important}.rc-home-hero-clean h1{font-size:38px!important;margin:0 0 5px!important}.rc-home-hero-clean p{color:#78889a!important;margin:0!important}.rc-home-hero-clean .btn{align-self:center!important}.rc-home-summary{margin-top:0!important}.rc-campaign-section .rc-section-head h2{font-size:24px!important}
+
+/* Wizard: reduce generated-looking step cards */
+.simple-flow-progress{background:transparent!important;border:0!important;border-bottom:1px solid #d7dfe7!important}.simple-flow-tab{background:transparent!important;border:0!important}.simple-flow-tab.active{background:transparent!important}.simple-flow-tab b{border-radius:50%!important}.simple-flow-head h2{font-size:26px!important}.simple-card{border-radius:0!important;box-shadow:none!important}
+
+@media(max-width:760px){.cp-sidebar{padding:12px 14px!important}.cp-campaign-nav .campaign-primary-nav button,.cp-global-nav a{text-align:left!important;padding-left:14px!important}.cp-workspace-header{height:48px!important}}
